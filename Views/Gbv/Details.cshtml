@@ -1,0 +1,108 @@
+@model rmc.Models.GbvCase
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>GbvCase</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IncCode)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IncCode)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.RegNo)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RegNo)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ItrCode)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ItrCode)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PatientName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PatientName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PatientFatherName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PatientFatherName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Age)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Age)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Sex)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Sex)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MaritalStatus)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MaritalStatus)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.RefDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RefDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.RefTime)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RefTime)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.UserName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.UserName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LastUpdate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LastUpdate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.InsertDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.InsertDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Hospital)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Hospital.FacilityName)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.GbvCaseId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

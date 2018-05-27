@@ -1,0 +1,143 @@
+@model rmc.Models.GbvCase
+
+@{
+    ViewData["Title"] = "Edit GBV Report";
+}
+<div class="container">
+<h2>Edit GBV Report</h2>
+<form asp-action="Edit">
+    <div class="form-horizontal">
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="GbvCaseId" />
+        <div class="form-group row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="RegNo" class="col-md-2 control-label"></label>
+                    <div class="col-md-10">
+                        <input asp-for="RegNo" class="form-control" />
+                        <span asp-validation-for="RegNo" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="HospitalId" class="col-md-3 control-label"></label>
+                    <div class="col-md-9">
+                        <select asp-for="HospitalId" class="form-control" asp-items="ViewBag.HospitalId"></select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="PatientName" class="col-md-2 control-label"></label>
+                    <div class="col-md-10">
+                        <input asp-for="PatientName" class="form-control" />
+                        <span asp-validation-for="PatientName" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="PatientFatherName" class="col-md-3 control-label"></label>
+                    <div class="col-md-9">
+                        <input asp-for="PatientFatherName" class="form-control" />
+                        <span asp-validation-for="PatientFatherName" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="Age" class="col-md-2 control-label"></label>
+                    <div class="col-md-10">
+                        <input asp-for="Age" class="form-control" />
+                        <span asp-validation-for="Age" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="Sex" class="col-md-3 control-label"></label>
+                    <div class="col-md-9">
+                        <select asp-for="Sex" class="form-control">
+                            <option value="0">Male</option>
+                            <option value="1">Female</option>
+                        </select>
+                        <span asp-validation-for="Sex" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="RefDate" class="col-md-2 control-label"></label>
+                    <div class="col-md-10">
+                        <input asp-for="RefDate" class="form-control" />
+                        <span asp-validation-for="RefDate" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="RefTime" class="col-md-3 control-label"></label>
+                    <div class="col-md-9">
+                        <input asp-for="RefTime" class="form-control" />
+                        <span asp-validation-for="RefTime" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="MaritalStatus" class="col-md-2 control-label"></label>
+                    <div class="col-md-10">
+                        <select asp-for="MaritalStatus" class="form-control">
+                            <option value="1">Single</option>
+                            <option value="2">Married</option>
+                            <option value="3">Engaged</option>
+                            <option value="4">Widow</option>
+                        </select>
+                        <span asp-validation-for="MaritalStatus" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="ItrCode" class="col-md-3 control-label"></label>
+                    <div class="col-md-9">
+                        <input asp-for="ItrCode" class="form-control" />
+                        <span asp-validation-for="ItrCode" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group ">
+            <label asp-for="Address" class="col-md-1 control-label"></label>
+            <div class="col-md-11">
+                <textarea asp-for="Address" class="form-control"></textarea>
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-1 col-md-11">
+                <input type="submit" value="Update" class="btn btn-primary btn-block" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

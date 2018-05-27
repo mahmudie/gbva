@@ -1,0 +1,125 @@
+@model IEnumerable<rmc.Models.Registration>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.RptYear)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.RptMonth)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.IsIdp)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TypeOfViolence)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.GbvHistory)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.RefIn)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.RefOut)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ServiceMedical)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ServicePsycho)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ServiceRefLegal)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ServiceRefSafeHouse)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Remarks)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.UserName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LastUpdate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.InsertDate)
+                </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GbvCase)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RptYear)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RptMonth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsIdp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TypeOfViolence)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GbvHistory)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RefIn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RefOut)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ServiceMedical)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ServicePsycho)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ServiceRefLegal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ServiceRefSafeHouse)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Remarks)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastUpdate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InsertDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GbvCase.GbvCaseId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.RegistrationId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.RegistrationId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.RegistrationId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,76 @@
+@model IEnumerable<rmc.Models.Provinces>
+
+@{
+    ViewData["Title"] = "Provinces";
+}
+<div class="container">
+<h2>Provinces</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table" id="tbl">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.ProvName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Aghchocode)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Aimscode)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.ProveNameDari)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ProveNamePashto)
+                </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProvName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Aghchocode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Aimscode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProveNameDari)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProveNamePashto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedDate)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ProvCode">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ProvCode">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ProvCode">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</div>
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            var table = $('#tbl').DataTable({
+                responsive: true,
+            });
+        });
+    </script>
+}

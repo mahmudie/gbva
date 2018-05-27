@@ -1,0 +1,48 @@
+@model rmc.Models.Districts
+
+@{
+    ViewData["Title"] = "District Detail";
+}
+<div class="container">
+<h2>Districs Detail</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CreatedDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DistName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DistName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DistNameDari)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DistNameDari)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DistNamePashto)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DistNamePashto)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ProvCodeNavigation)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ProvCodeNavigation.ProvName)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.DistCode">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
+</div>

@@ -1,0 +1,10 @@
+C:\Users\Ghader\Documents\Visual Studio 2017\Projects\rmc\rmc\bin\Release\netcoreapp1.1\rmc.deps.json
+C:\Users\Ghader\Documents\Visual Studio 2017\Projects\rmc\rmc\bin\Release\netcoreapp1.1\rmc.runtimeconfig.json
+C:\Users\Ghader\Documents\Visual Studio 2017\Projects\rmc\rmc\bin\Release\netcoreapp1.1\rmc.runtimeconfig.dev.json
+C:\Users\Ghader\Documents\Visual Studio 2017\Projects\rmc\rmc\bin\Release\netcoreapp1.1\rmc.dll
+C:\Users\Ghader\Documents\Visual Studio 2017\Projects\rmc\rmc\bin\Release\netcoreapp1.1\rmc.pdb
+C:\Users\Ghader\Documents\Visual Studio 2017\Projects\rmc\rmc\obj\Release\netcoreapp1.1\rmc.csprojResolveAssemblyReference.cache
+C:\Users\Ghader\Documents\Visual Studio 2017\Projects\rmc\rmc\obj\Release\netcoreapp1.1\UserSecretsAssemblyInfo.cs
+C:\Users\Ghader\Documents\Visual Studio 2017\Projects\rmc\rmc\obj\Release\netcoreapp1.1\rmc.AssemblyInfo.cs
+C:\Users\Ghader\Documents\Visual Studio 2017\Projects\rmc\rmc\obj\Release\netcoreapp1.1\rmc.dll
+C:\Users\Ghader\Documents\Visual Studio 2017\Projects\rmc\rmc\obj\Release\netcoreapp1.1\rmc.pdb

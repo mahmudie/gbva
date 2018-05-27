@@ -1,0 +1,123 @@
+@model rmc.Models.FacilityInfo
+
+@{
+    ViewData["Title"] = "Delete Facilirty Info";
+}
+<div class="container">
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <input type="hidden" asp-for="FacilityId" />
+        <dt>
+            @Html.DisplayNameFor(model => model.ActiveStatus)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ActiveStatus)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DateEstablished)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DateEstablished)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FacilityName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FacilityName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FacilityNameDari)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FacilityNameDari)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FacilityNamePashto)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FacilityNamePashto)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FacilityType)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FacilityType)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Gpslattitude)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Gpslattitude)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Gpslongtitude)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Gpslongtitude)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Implementer)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Implementer)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Lat)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Lat)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Location)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Location)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LocationDari)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LocationDari)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LocationPashto)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LocationPashto)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Lon)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Lon)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SubImplementer)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SubImplementer)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ViliCode)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ViliCode)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DistCodeNavigation)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DistCodeNavigation.DistName)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-danger" /> |
+            <a asp-action="Index">Back to List</a>
+        </div>
+    </form>
+</div>
+</div>

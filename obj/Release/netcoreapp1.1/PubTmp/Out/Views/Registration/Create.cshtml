@@ -1,0 +1,139 @@
+@model rmc.Models.Registration
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<form asp-action="Create">
+    <div class="form-horizontal">
+        <h4>Registration</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="GbvCaseId" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <select asp-for="GbvCaseId" class ="form-control" asp-items="ViewBag.GbvCaseId"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="RptYear" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="RptYear" class="form-control" />
+                <span asp-validation-for="RptYear" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="RptMonth" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="RptMonth" class="form-control" />
+                <span asp-validation-for="RptMonth" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="IsIdp" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="IsIdp" class="form-control" />
+                <span asp-validation-for="IsIdp" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="TypeOfViolence" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="TypeOfViolence" class="form-control" />
+                <span asp-validation-for="TypeOfViolence" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="GbvHistory" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="GbvHistory" class="form-control" />
+                <span asp-validation-for="GbvHistory" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="RefIn" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="RefIn" class="form-control" />
+                <span asp-validation-for="RefIn" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="RefOut" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="RefOut" class="form-control" />
+                <span asp-validation-for="RefOut" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="ServiceMedical" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="ServiceMedical" class="form-control" />
+                <span asp-validation-for="ServiceMedical" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="ServicePsycho" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="ServicePsycho" class="form-control" />
+                <span asp-validation-for="ServicePsycho" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="ServiceRefLegal" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="ServiceRefLegal" class="form-control" />
+                <span asp-validation-for="ServiceRefLegal" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="ServiceRefSafeHouse" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="ServiceRefSafeHouse" class="form-control" />
+                <span asp-validation-for="ServiceRefSafeHouse" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Remarks" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Remarks" class="form-control" />
+                <span asp-validation-for="Remarks" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="UserName" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="UserName" class="form-control" />
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="LastUpdate" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="LastUpdate" class="form-control" />
+                <span asp-validation-for="LastUpdate" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="InsertDate" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="InsertDate" class="form-control" />
+                <span asp-validation-for="InsertDate" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

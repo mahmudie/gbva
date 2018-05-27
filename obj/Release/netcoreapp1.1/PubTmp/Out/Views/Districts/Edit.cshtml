@@ -1,0 +1,57 @@
+@model rmc.Models.Districts
+
+@{
+    ViewData["Title"] = "Edit District";
+}
+<div class="container">
+<h2>Edit District</h2>
+
+<form asp-action="Edit">
+    <div class="form-horizontal">
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="DistCode" />
+        <div class="form-group">
+            <label asp-for="DistName" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="DistName" class="form-control" />
+                <span asp-validation-for="DistName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="DistNameDari" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="DistNameDari" class="form-control" />
+                <span asp-validation-for="DistNameDari" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="DistNamePashto" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="DistNamePashto" class="form-control" />
+                <span asp-validation-for="DistNamePashto" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="ProvCode" class="control-label col-md-2"></label>
+            <div class="col-md-10">
+                <select asp-for="ProvCode" class="form-control" asp-items="ViewBag.ProvCode"></select>
+                <span asp-validation-for="ProvCode" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-block btn-primary" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

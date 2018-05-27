@@ -1,0 +1,46 @@
+@model IEnumerable<rmc.Models.AgencyType>
+
+@{
+    ViewData["Title"] = "Facility Types";
+}
+<div class="container">
+<h2>Agency Types</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table table-bordered" id="tbl">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.AgencyType1)
+                </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AgencyType1)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.AgencyTypeId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.AgencyTypeId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.AgencyTypeId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</div>
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            var table = $('#tbl').DataTable({
+                responsive: true,
+            });
+        });
+    </script>
+}

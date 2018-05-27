@@ -1,0 +1,54 @@
+@model rmc.Models.Provinces
+
+@{
+    ViewData["Title"] = "Province Details";
+}
+<div class="container">
+
+<h2>Province Details</h2>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Aghchocode)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Aghchocode)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Aimscode)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Aimscode)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CreatedDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ProvName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ProvName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ProveNameDari)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ProveNameDari)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ProveNamePashto)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ProveNamePashto)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ProvCode">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
+</div>

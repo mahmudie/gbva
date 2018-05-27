@@ -1,0 +1,125 @@
+@model rmc.Models.GbvCase
+
+@{
+    ViewData["Title"] = "Delete";
+}
+<div class="container">
+    <h3>Are you sure you want to delete this?</h3>
+    <hr />
+    <dl class="dl-horizontal">
+        <input type="hidden" asp-for="GbvCaseId" />
+        <dt>
+            @Html.DisplayNameFor(model => model.IncCode)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IncCode)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.RegNo)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RegNo)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ItrCode)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ItrCode)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PatientName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PatientName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PatientFatherName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PatientFatherName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Age)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Age)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Sex)
+        </dt>
+        <dd>
+            @if(@Model.Sex==1){
+            @Html.Raw("Male")
+            }
+            @if(@Model.Sex==2){
+            @Html.Raw("Female")
+            }
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MaritalStatus)
+        </dt>
+        <dd>
+            @if(@Model.MaritalStatus==1){
+            @Html.Raw("Single")
+            }
+            @if(@Model.MaritalStatus==2){
+            @Html.Raw("Married")
+            }
+            @if(@Model.MaritalStatus==3){
+            @Html.Raw("Engaged")
+            }
+            @if(@Model.MaritalStatus==4){
+            @Html.Raw("Widow")
+            }
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.RefDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RefDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.RefTime)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RefTime)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.UserName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.UserName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LastUpdate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LastUpdate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.InsertDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.InsertDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Hospital)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Hospital.FacilityName)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-danger" /> |
+            <a asp-action="Index">Back to List</a>
+        </div>
+    </form>
+</div>

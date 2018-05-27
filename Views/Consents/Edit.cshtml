@@ -1,0 +1,94 @@
+@model rmc.Models.Consent
+
+@{
+    ViewData["Title"] = "Consent info";
+}
+<br />
+<ul class="nav nav-tabs">
+    <li role="presentation" class="active"><a asp-controller="consents" asp-route-id="@Model.GbvCaseId" asp-action="Edit">Consent</a></li>
+    <li role="presentation"><a asp-controller="registration" asp-route-id="@Model.GbvCaseId" asp-action="Edit">Registration</a></li>
+    <li role="presentation" ><a asp-controller="intake" asp-route-id="@Model.GbvCaseId" asp-action="Edit">Intake Info</a></li>
+    <li role="presentation"><a asp-controller="authorizations" asp-route-id="@Model.GbvCaseId" asp-action="Edit">Authorization</a></li>
+    <li role="presentation"><a asp-controller="Gbv"  asp-action="Index">back to List</a></li>
+</ul>
+<div class="container">
+<form asp-action="Edit">
+    <div class="form-horizontal">
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="GbvCaseId" />
+    <input type="hidden" asp-for="ConsentId" />
+
+        <div class="form-group">
+            <label asp-for="PhysicalExams" class="col-md-2 control-label"></label>
+            <label  class="checkbox-inline">
+                <input asp-for="PhysicalExams" type="radio"  value="1"> Yes
+            </label>
+            <label  class="checkbox-inline">
+                <input asp-for="PhysicalExams" type="radio"  value="2"> No
+            </label>
+            <span asp-validation-for="PhysicalExams" class="text-danger help-block col-md-offset-2"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="PelvicExams" class="col-md-2 control-label"></label>
+            <label  class="checkbox-inline">
+                <input asp-for="PelvicExams" type="radio"  value="1"> Yes
+            </label>
+            <label class="checkbox-inline">
+                <input asp-for="PelvicExams" type="radio"  value="2"> No
+            </label>
+            <span asp-validation-for="PelvicExams" class="text-danger help-block col-md-offset-2"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="SpeculumExams" class="col-md-2 control-label"></label>
+            <label  class="checkbox-inline">
+                <input asp-for="SpeculumExams" type="radio"  value="1"> Yes
+            </label>
+            <label  class="checkbox-inline">
+                <input asp-for="SpeculumExams" type="radio"  value="2"> No
+            </label>
+            <span asp-validation-for="SpeculumExams" class="text-danger help-block col-md-offset-2"></span>            
+        </div>
+        <div class="form-group">
+            <label asp-for="OtherExams" class="col-md-2 control-label"></label>
+            <label  class="checkbox-inline">
+                <input asp-for="OtherExams" type="radio" value="1"> Yes
+            </label>
+            <label  class="checkbox-inline">
+                <input asp-for="OtherExams" type="radio"  value="2"> No
+            </label>
+            <span asp-validation-for="OtherExams" class="text-danger help-block col-md-offset-2"></span>            
+        </div>
+        <div class="form-group">
+            <label asp-for="BloodExams"  class="col-md-2 control-label"></label>
+            <label asp-for="BloodExams" class="checkbox-inline">
+                <input asp-for="BloodExams" type="radio"  value="1"> Yes
+            </label>
+            <label  class="checkbox-inline">
+                <input asp-for="BloodExams" type="radio"  value="2"> No
+            </label>
+            <span asp-validation-for="BloodExams" class="text-danger help-block col-md-offset-2"></span>            
+        </div>
+        <div class="form-group">
+            <label asp-for="ProvisionOfInfo" class="col-md-2 control-label"></label>
+            <label  class="checkbox-inline">
+                <input asp-for="ProvisionOfInfo" type="radio" value="1"> Yes
+            </label>
+            <label  class="checkbox-inline">
+                <input asp-for="ProvisionOfInfo" type="radio"  value="2"> No
+            </label>
+            <span asp-validation-for="ProvisionOfInfo" class="text-danger help-block col-md-offset-2"></span>
+            
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+</form>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

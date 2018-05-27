@@ -1,0 +1,44 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using rmc.Models
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+    
+@if (SignInManager.IsSignedIn(User))
+{
+<li class="dropdown notifications-menu">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+    <i class="fa fa-tasks"></i>     Welcome @UserManager.GetUserName(User)!
+  </a>
+  <ul class="dropdown-menu">
+    <li class="header">Welcome @UserManager.GetUserName(User)!</li>
+    <li>
+
+      <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 120px;">
+        <ul class="menu" style="overflow: hidden; width: 100%; height: 120px;">
+          <li>
+            <a href="/manage/changepassword">
+              <i class="fa fa-pencil-square-o"></i> Change Password
+            </a>
+          </li>
+          <li>
+            <a href="/account/logout" onclick="event.preventDefault();document.getElementById('logout-form').submit();"><i class="fa fa-power-off"></i>Logout </a>
+          </li>
+        </ul>
+        <div class="slimScrollBar" style="background: rgb(0, 0, 0); width: 3px; position: absolute; top: 0px; opacity: 0.4; display: block; border-radius: 7px; z-index: 99; right: 1px;"></div>
+        <div class="slimScrollRail" style="width: 3px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;"></div>
+      </div>
+    </li>
+  </ul>
+</li>
+    
+    <form asp-area="" id="logout-form" asp-controller="Account" asp-action="LogOff" method="post" id="logoutForm" class="navbar-right" style="display: none;">
+            <li>
+                <button type="submit" class="btn btn-link navbar-btn navbar-link">Log off</button>
+            </li>
+    </form>
+}else{
+
+            <a href="/account/login"><i class="fa fa-sign-in"></i>  Sign In  </a>
+
+
+}

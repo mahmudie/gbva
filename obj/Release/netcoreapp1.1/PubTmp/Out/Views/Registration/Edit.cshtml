@@ -1,0 +1,215 @@
+@model rmc.Models.Registration
+
+@{
+    ViewData["Title"] = "Regisstration info";
+}
+
+<br />
+<ul class="nav nav-tabs">
+    <li role="presentation" ><a asp-controller="consents" asp-route-id="@Model.GbvCaseId" asp-action="Edit">Consent</a></li>
+    <li role="presentation" class="active"><a a asp-controller="Registration" asp-route-id="@Model.GbvCaseId" asp-action="Edit">Registration</a></li>
+    <li role="presentation"><a asp-controller="intake" asp-route-id="@Model.GbvCaseId" asp-action="Edit">Intake Info</a></li>
+    <li role="presentation"><a asp-controller="authorizations" asp-route-id="@Model.GbvCaseId" asp-action="Edit">Authorization</a></li>
+    <li role="presentation"><a asp-controller="Gbv" asp-action="Index">back to List</a></li>
+
+</ul>
+<div class="container">
+<form asp-controller="registration" asp-action="Edit">
+    <div class="form-horizontal">
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="RegistrationId" />
+        <input type="hidden" asp-for="GbvCaseId" />
+        <div class="form-group">
+            <label asp-for="RptYear" class="col-md-2 control-label"></label>
+            <div class="col-md-5">
+                <input asp-for="RptYear" class="form-control" />
+                <span asp-validation-for="RptYear" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="RptMonth" class="col-md-2 control-label"></label>
+            <div class="col-md-5">
+                <input asp-for="RptMonth" class="form-control" />
+                <span asp-validation-for="RptMonth" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="IsIdp" class="col-md-2 control-label">
+            </label>
+            <div class="col-md-5">
+            <label asp-for="IsIdp" class="radio-inline">
+                <input asp-for="IsIdp" type="radio"  value="1"> Yes
+            </label>
+            <label  class="radio-inline">
+                <input asp-for="IsIdp" type="radio"  value="2"> No
+            </label>
+            <label class="radio-inline">
+                <input asp-for="IsIdp" type="radio"  value="3"> Unknown
+            </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="TypeOfViolence" class="col-md-2 control-label"></label>
+            <div class="col-md-8">
+                <label  class="radio-inline">
+                    <input asp-for="TypeOfViolence" type="radio"  value="1"> Rape
+                </label>
+                <label  class="radio-inline">
+                    <input asp-for="TypeOfViolence" type="radio"  value="2"> Sexual Assault
+                </label>
+                <label class="radio-inline">
+                    <input asp-for="TypeOfViolence" type="radio"  value="3"> Physical Violence
+                </label>
+                <label class="radio-inline">
+                    <input asp-for="TypeOfViolence" type="radio"  value="4"> Forced Marriage
+                </label>
+                <label class="radio-inline">
+                    <input asp-for="TypeOfViolence" type="radio"  value="5"> Deprivation from Resources and Opportunities
+                </label>
+                <label class="radio-inline">
+                    <input asp-for="TypeOfViolence" type="radio"  value="6"> Phsicological/emotional violence
+                </label>
+            </div>
+            </div>
+        <div class="form-group">
+            <label asp-for="GbvHistory" class="col-md-2 control-label"></label>
+            <div class="col-md-8">
+                <label class="radio-inline">
+                    <input asp-for="GbvHistory" type="radio"  value="1"> Yes
+                </label>
+                <label class="radio-inline">
+                    <input asp-for="GbvHistory" type="radio"  value="2"> No
+                </label>
+            </div>
+            </div>
+        <div class="form-group">
+            <label asp-for="RefIn" class="col-md-2 control-label"></label>
+            <div class="col-md-8">
+                <label  class="radio-inline">
+                    <input asp-for="RefIn" type="radio"  value="1"> self-referal or marham
+                </label>
+                <label  class="radio-inline">
+                    <input asp-for="RefIn" type="radio"  value="2"> health facilities
+                </label>
+                <label  class="radio-inline">
+                    <input asp-for="RefIn" type="radio"  value="3"> psychosocial centers
+                </label>
+                <label class="radio-inline">
+                    <input asp-for="RefIn" type="radio"  value="4"> community
+                </label>
+                <label  class="radio-inline">
+                    <input asp-for="RefIn" type="radio"  value="5"> livelihood program
+                </label>
+                <label  class="radio-inline">
+                    <input asp-for="RefIn" type="radio"  value="6"> livelihood program
+                </label>
+                <label  class="radio-inline">
+                    <input asp-for="RefIn" type="radio"  value="7"> police/other security institutions
+                </label>
+                <label  class="radio-inline">
+                    <input asp-for="RefIn" type="radio"  value="8"> legal  services centers
+                </label>
+                <label  class="radio-inline">
+                    <input asp-for="RefIn" type="radio"  value="9"> teacher
+                </label>
+                <label  class="radio-inline">
+                    <input asp-for="RefIn" type="radio"  value="8"> government services
+                </label>
+                <label  class="radio-inline">
+                    <input asp-for="RefIn" type="radio"  value="11"> other humantarian organizations
+                </label>
+                <label  class="radio-inline">
+                    <input asp-for="RefIn" type="radio"  value="12"> others
+                </label>
+                </div>
+            </div>
+        <div class="form-group">
+            <label asp-for="RefOut" class="col-md-2 control-label"></label>
+            <div class="col-md-8">
+                <label class="radio-inline">
+                    <input asp-for="RefOut" type="radio" value="2"> Health Facilities
+                </label>
+                <label class="radio-inline">
+                    <input asp-for="RefOut" type="radio" value="3"> Psychosocial Centers
+                </label>
+                <label class="radio-inline">
+                    <input asp-for="RefOut" type="radio" value="5"> Livelihood Program
+                </label>
+                <label class="radio-inline">
+                    <input asp-for="RefOut" type="radio" value="6"> Protection Center
+                </label>
+                <label class="radio-inline">
+                    <input asp-for="RefOut" type="radio" value="7"> Police/Other Security institutions
+                </label>
+                <label class="radio-inline">
+                    <input asp-for="RefOut" type="radio" value="8"> Legal Service Centers
+                </label>
+                <label class="radio-inline">
+                    <input asp-for="RefOut" type="radio" value="10"> Governmental Services
+                </label>
+                <label class="radio-inline">
+                    <input asp-for="RefOut" type="radio" value="11"> Other Humanitarian Organizations
+                </label>
+                <label class="radio-inline">
+                    <input asp-for="RefOut" type="radio" value="12"> Others
+                </label>
+                <label class="radio-inline">
+                    <input asp-for="RefOut" type="radio" value="13"> Nowhere
+                </label>
+                <span asp-validation-for="RefOut" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="ServiceMedical" class="col-md-2 control-label"></label>
+            <div class="col-md-8">
+                <label class="checkbox checkbox-inline">
+                   <input asp-for="ServiceMedical" class="checkbox" />
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="ServicePsycho" class="col-md-2 control-label"></label>
+            <div class="col-md-8">
+                <label class="checkbox checkbox-inline">
+                   <input asp-for="ServicePsycho" class="checkbox" />
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="ServiceRefLegal" class="col-md-2 control-label"></label>
+            <div class="col-md-8">
+                <label class="checkbox checkbox-inline">
+                   <input asp-for="ServiceRefLegal" class="checkbox" />
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="ServiceRefSafeHouse" class="col-md-2 control-label"></label>
+            <div class="col-md-8">
+                <label class="checkbox checkbox-inline">
+                   <input asp-for="ServiceRefSafeHouse" class="checkbox" />
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Remarks" class="col-md-2 control-label"></label>
+            <div class="col-md-8">
+                <input asp-for="Remarks" class="form-control" />
+                <span asp-validation-for="Remarks" class="text-danger"></span>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-8">
+                <input type="submit" value="Save" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+</form>
+    </div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,1152 @@
+@model rmc.Models.IntakeInfo
+
+@{
+    ViewData["Title"] = "Intake Information";
+}
+<br />
+<ul class="nav nav-tabs">
+    <li role="presentation"><a asp-controller="consents" asp-route-id="@Model.GbvCaseId" asp-action="Edit">Consent</a></li>
+    <li role="presentation"><a asp-controller="registration" asp-route-id="@Model.GbvCaseId" asp-action="Edit">Registration</a></li>
+    <li role="presentation" class="active"><a asp-controller="intake" asp-route-id="@Model.GbvCaseId" asp-action="Edit">Intake Info</a></li>
+    <li role="presentation"><a asp-controller="authorizations" asp-route-id="@Model.GbvCaseId" asp-action="Edit">Authorization</a></li>
+    <li role="presentation"><a asp-controller="Gbv" asp-action="Index">back to List</a></li>
+
+</ul>
+<br />
+<ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#home">General Information</a></li>
+    <li><a data-toggle="tab" href="#menu1">incident</a></li>
+    <li><a data-toggle="tab" href="#menu2">Suspect Info</a></li>
+    <li><a data-toggle="tab" href="#menu3">Medical History</a></li>
+    <li><a data-toggle="tab" href="#menu4">Treatment Detail</a></li>
+    <li><a data-toggle="tab" href="#menu5">Further Actions</a></li>
+    <li><a data-toggle="tab" href="#menu6">other</a></li>
+</ul>
+
+<div class="tab-content">
+    <div id="home" class="tab-pane fade in active">
+        <br />
+        <form asp-action="Edit" id="form1">
+            <div class="form-horizontal">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="IntakeInfoId" />
+                <input type="hidden" asp-for="GbvCaseId" id="guid" />
+                <input type="hidden" asp-for="formtype" value="1" />
+                <span class="help-block col-md-offset-2">who or which organization did refer the survivor to you</span> 
+                <div class="form-group">
+                    <div class="col-md-10 col-md-offset-2">
+                        <label class="radio-inline">
+                            <input asp-for="ReferredBy" type="radio" id="inlineCheckbox1" value="1"> self-referal or marham
+                        </label>
+                        <label class="radio-inline">
+                            <input asp-for="ReferredBy" type="radio" id="inlineCheckbox1" value="2"> health facilities
+                        </label>
+                        <label class="radio-inline">
+                            <input asp-for="ReferredBy" type="radio" id="inlineCheckbox1" value="3"> psychosocial centers
+                        </label>
+                        <label class="radio-inline">
+                            <input asp-for="ReferredBy" type="radio" id="inlineCheckbox1" value="4"> community
+                        </label>
+                        <label class="radio-inline">
+                            <input asp-for="ReferredBy" type="radio" id="inlineCheckbox1" value="5"> livelihood program
+                        </label>
+                        <label class="radio-inline">
+                            <input asp-for="ReferredBy" type="radio" id="inlineCheckbox1" value="6"> livelihood program
+                        </label>
+                        <label class="radio-inline">
+                            <input asp-for="ReferredBy" type="radio" id="inlineCheckbox1" value="7"> police/other security institutions
+                        </label>
+                        <label class="radio-inline">
+                            <input asp-for="ReferredBy" type="radio" id="inlineCheckbox1" value="8"> legal  services centers
+                        </label>
+                        <label class="radio-inline">
+                            <input asp-for="ReferredBy" type="radio" id="inlineCheckbox1" value="9"> teacher
+                        </label>
+                        <label class="radio-inline">
+                            <input asp-for="ReferredBy" type="radio" id="inlineCheckbox1" value="10"> government services
+                        </label>
+                        <label class="radio-inline">
+                            <input asp-for="ReferredBy" type="radio" id="inlineCheckbox1" value="11"> other humantarian organizations
+                        </label>
+                        <label class="radio-inline">
+                            <input asp-for="ReferredBy" type="radio" id="inlineCheckbox1" value="12"> others
+                        </label>
+                    </div>
+                </div>
+                <hr />
+                <span class="help-block col-md-offset-2">specify other here</span>
+                <div class="form-group">
+                    <div class="col-md-4 col-md-offset-2">
+                        <input asp-for="RefOther" class="form-control" />
+                        <span asp-validation-for="RefOther" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-md-6">
+                        <label asp-for="ExamDate" class="col-md-4 control-label"></label>
+                        <div class="col-md-6">
+                            <input asp-for="ExamDate" class="form-control" />
+                            <span asp-validation-for="ExamDate" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="ExamTime" class="col-md-4 control-label"></label>
+                            <div class="col-md-6">
+                                <input asp-for="ExamTime" class="form-control" />
+                                <span asp-validation-for="ExamTime" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="save" class="btn btn-success" />
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div id="menu1" class="tab-pane fade">
+        <br />
+        <form asp-action="Edit" id="form2">
+            <div class="form-horizontal">
+                <input type="hidden" asp-for="GbvCaseId" id="guid" />
+                <input type="hidden" asp-for="formtype" value="2" />
+                <span class="col-md-offset-2 help-block">incident date and time</span>
+                <div class="form-group">
+                    <label asp-for="IncDate" type="date" class="col-md-2 control-label"></label>
+                    <div class="col-md-8">
+                        <input asp-for="IncDate" class="form-control" />
+                        <span asp-validation-for="IncDate" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="IncTime" class="col-md-2 control-label"></label>
+                    <div class="col-md-8">
+                        <input asp-for="IncTime" class="form-control" />
+                        <span asp-validation-for="IncTime" class="text-danger"></span>
+                    </div>
+                </div>
+                <hr />
+
+                <span class="col-md-offset-2 help-block">incident location</span>
+                <div class="form-group">
+                    <label asp-for="IncLocation" class="col-md-2 control-label"></label>
+                    <div class="col-md-10">
+                        <div class="radio">
+                            <label>
+                                <input asp-for="IncLocation" type="radio" value="1"> Bush/forest
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input asp-for="IncLocation" type="radio" value="2"> garden/cultivated field
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input asp-for="IncLocation" type="radio" value="3"> School
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input asp-for="IncLocation" type="radio" value="4"> Road
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input asp-for="IncLocation" type="radio" value="5"> Survivor home
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input asp-for="IncLocation" type="radio" value="6"> Prepator's home
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input asp-for="IncLocation" type="radio" value="7"> other
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <span class="col-md-offset-2 help-block">specify other here</span>
+                <div class="form-group">
+                    <label asp-for="IncLocationOther" class="col-md-2 control-label"></label>
+                    <div class="col-md-10">
+                        <input asp-for="IncLocationOther" class="form-control" />
+                        <span asp-validation-for="IncLocationOther" class="text-danger"></span>
+                    </div>
+                </div>
+                <hr />
+
+                <span class="col-md-offset-2 help-block">primary type of GBV incedent</span>
+                <div class="form-group">
+                    <label asp-for="IncType" class="col-md-2 control-label"></label>
+                    <div class="col-md-10">
+                        <div class="radio">
+                            <label>
+                                <input asp-for="IncType" type="radio" value="1"> Rape
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input asp-for="IncType" type="radio" value="2"> Sexual Assult
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input asp-for="IncType" type="radio" value="3"> Physical Assult
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input asp-for="IncType" type="radio" value="4"> Forced Marriage
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input asp-for="IncType" type="radio" value="5"> Deprivation from resources and opportunities
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input asp-for="IncType" type="radio" value="6"> psychological/emotional violence
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <span class="col-md-offset-2 help-block">has the survivor reported the incident to other place</span>
+                <div class="form-group">
+                    <div class="col-md-10 col-md-offset-2">
+                        <div class="radio">
+                            <label>
+                                <input asp-for="IncReportToOther" type="radio" value="1"> Yes
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input asp-for="IncReportToOther" type="radio" value="2"> No
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input asp-for="IncReportToOther" type="radio" value="3"> Unknown
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="save" class="btn btn-success" />
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div id="menu2" class="tab-pane fade">
+        <br />
+        <form id="form3" asp-action="Edit">
+            <div class="form-horizontal">
+                <input type="hidden" asp-for="GbvCaseId" id="guid" />
+                <input type="hidden" asp-for="formtype" value="3" />
+                <span class="help-block col-md-offset-2">relationship of prepetrator to victim</span>
+                <div class="form-group">
+                    <label asp-for="Relationship" class="col-md-2 control-label"></label>
+                    <div class="col-md-10">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" asp-for="Relationship" value="1" /> Spouse
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" asp-for="Relationship" value="2" /> Family member other than spouse and custodian
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" asp-for="Relationship" value="3" /> Main custodian other than spouse
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" asp-for="Relationship" value="4" /> Close/old friend
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" asp-for="Relationship" value="5" /> Service Provider
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" asp-for="Relationship" value="6" /> Other must be specified
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" asp-for="Relationship" value="7" /> Unknown
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <span class="help-block col-md-offset-2">no of prepetrator </span>
+                <div class="form-group">
+                    <label asp-for="NoOfPerpetrators" class="col-md-2 control-label"></label>
+                    <div class="col-md-10">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" asp-for="NoOfPerpetrators" value="1" /> 1
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" asp-for="NoOfPerpetrators" value="2" /> 2
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" asp-for="NoOfPerpetrators" value="3" /> 3
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" asp-for="NoOfPerpetrators" value="4" /> more than three
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" asp-for="NoOfPerpetrators" value="5" /> Unknown
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <span class="help-block col-md-offset-2">prepetrator's occupation</span>
+                <div class="form-group">
+                    <label asp-for="PerpetratorOccupation" class="col-md-2 control-label"></label>
+                    <div class="col-md-10">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" asp-for="PerpetratorOccupation" value="1" /> Government Employee
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" asp-for="PerpetratorOccupation" value="2" /> NGO Employee
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" asp-for="PerpetratorOccupation" value="3" /> Law-Sector
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" asp-for="PerpetratorOccupation" value="4" /> Teacher
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" asp-for="PerpetratorOccupation" value="5" /> Health provider
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" asp-for="PerpetratorOccupation" value="6" /> Military
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" asp-for="PerpetratorOccupation" value="7" /> Religious elder/leader
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" asp-for="PerpetratorOccupation" value="8" /> Other(must be specified)
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" asp-for="PerpetratorOccupation" value="9" /> Unknown
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <span class="help-block col-md-offset-2">specify other here</span>
+                <div class="form-group">
+                    <label asp-for="OccupationOther" class="col-md-2 control-label"></label>
+                    <div class="col-md-8">
+                        <input asp-for="OccupationOther" class="form-control" />
+                        <span asp-validation-for="OccupationOther" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="save" class="btn btn-success" />
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div id="menu3" class="tab-pane fade">
+        <br />
+        <form id="form4" asp-action="Edit">
+            <input type="hidden" asp-for="GbvCaseId" />
+            <input type="hidden" asp-for="formtype" value="4" />
+            <div class="form-horizontal">
+                <span class="help-block col-md-offset-2">Age Group</span>
+                <div class="form-group">
+                    <div class="col-md-10 col-md-offset-2">
+                        <label class="radio-inline">
+                            <input type="radio" asp-for="AgeGroup" value="1" />Child-blow 18 year
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" asp-for="AgeGroup" value="2" /> Adult- 18-49 year
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" asp-for="AgeGroup" value="3" />Elderly- 50 plus
+                        </label>
+                    </div>
+                </div>
+                <hr />
+                <span class="help-block col-md-offset-2">STI status of the survivor,including HIV/AIDS</span>
+                <div class="form-group">
+                    <div class="col-md-10 col-md-offset-2">
+                        <label class="radio-inline">
+                            <input type="radio" asp-for="StiStatus" value="1" />Negative
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" asp-for="StiStatus" value="2" />Positive
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" asp-for="StiStatus" value="3" />Un-Clear
+                        </label>
+                    </div>
+                </div>
+                <hr />
+                <span class="help-block col-lg-offset-2">HCV/HVS(Hepatitis)</span>
+                <div class="form-group">
+                    <div class="col-md-10 col-md-offset-2">
+                        <label class="radio-inline">
+                            <input type="radio" asp-for="HcvHbs" value="1" />Negative
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" asp-for="HcvHbs" value="2" />Positive
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" asp-for="HcvHbs" value="3" />Un-Clear
+                        </label>
+                    </div>
+                </div>
+                <hr />
+                <span class="help-block col-lg-offset-2">Evidence of Pregnancy</span>
+                <div class="form-group">
+                    <label asp-for="EvidenceOfPregnancy" class="col-md-2 control-label"></label>
+                    <div class="col-md-10">
+                        <label class="radio-inline">
+                            <input type="radio" asp-for="EvidenceOfPregnancy" value="1" />Yes
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" asp-for="EvidenceOfPregnancy" value="2" />No
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PregnancyWeeks" class="col-md-2 control-label"></label>
+                    <div class="col-md-4">
+                        <input id="pweeks" asp-for="PregnancyWeeks" class="form-control" />
+                        <span asp-validation-for="PregnancyWeeks" class="text-danger"></span>
+                    </div>
+                </div>
+                <hr />
+                <span class="help-block col-lg-offset-2">Summary of the results including psychological status</span>
+                <div class="form-group">
+                    <label asp-for="PsychologicalStatus" class="col-md-2 control-label"></label>
+                    <div class="col-md-10">
+                        <label class="radio-inline">
+                            <input type="radio" asp-for="PsychologicalStatus" value="1" />Injuries
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" asp-for="PsychologicalStatus" value="2" />Trauma
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" asp-for="PsychologicalStatus" value="3" />Other
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ResultsOther" class="col-md-2 control-label"></label>
+                    <div class="col-md-8">
+                        <input asp-for="ResultsOther" class="form-control" />
+                        <span asp-validation-for="ResultsOther" class="text-danger"></span>
+                    </div>
+                </div>
+                <hr />
+                <span class="help-block col-md-offset-2">explain the physical and pschological status of the survivor</span>
+                <div class="form-group">
+                    <label asp-for="Results" class="col-md-2 control-label"></label>
+                    <div class="col-md-8">
+                        <input asp-for="Results" class="form-control" />
+                        <span asp-validation-for="Results" class="text-danger"></span>
+                    </div>
+                </div>
+                <hr />
+                <span class="help-block col-lg-offset-2">Has the survivor been examined for AIDS ?</span>
+                <div class="form-group">
+                    <div class="col-md-10 col-md-offset-2">
+                        <label class="radio-inline">
+                            <input asp-for="ExaminedForAids" type="radio" value="1" />Yes
+                        </label>
+                        <label class="radio-inline">
+                            <input asp-for="ExaminedForAids" type="radio" value="2" />No
+                        </label>
+                        <label class="radio-inline">
+                            <input asp-for="ExaminedForAids" type="radio" value="3" />Yes - positive
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="save" class="btn btn-success" />
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div id="menu4" class="tab-pane fade">
+        <br />
+        <form id="form5" asp-action="Edit">
+            <input type="hidden" asp-for="GbvCaseId" />
+            <input type="hidden" asp-for="formtype" value="5" />
+            <div class="form-horizontal">
+                <span class="help-block col-md-offset-2">STI prevention medication/treatment</span>
+                <div class="form-group">
+                    <div class="col-md-10 col-md-offset-2">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" value="1" asp-for="SstPrevenMed" /> Yes
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" value="2" asp-for="SstPrevenMed" /> No
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" value="3" asp-for="SstPrevenMed" /> The survivir didn't want
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" value="4" asp-for="SstPrevenMed" /> Not Applicable
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" value="5" asp-for="SstPrevenMed" /> Not Available
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <span class="help-block col-md-offset-2">Medication for injuries</span>
+                <div class="form-group">
+                    <div class="col-md-10 col-md-offset-2">
+
+                        <div class="radio">
+                            <label>
+                                <input type="radio" value="1" asp-for="MedForInjuries" /> Yes
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" value="2" asp-for="MedForInjuries" /> No
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" value="3" asp-for="MedForInjuries" /> The survivir didn't want
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" value="4" asp-for="MedForInjuries" /> Not Applicable
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" value="5" asp-for="MedForInjuries" /> Not Available
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <span class="help-block col-md-offset-2">Vaccination for Tetanus</span>
+                <div class="form-group">
+                    <div class="col-md-10 col-md-offset-2">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" value="1" asp-for="VacForTreat" /> Yes
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" value="2" asp-for="VacForTreat" /> No
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" value="3" asp-for="VacForTreat" /> The survivir didn't want
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" value="4" asp-for="VacForTreat" /> Not Applicable
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" value="5" asp-for="VacForTreat" /> Not Available
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="save" class="btn btn-success" />
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div id="menu5" class="tab-pane fade">
+        <br />
+        <form asp-action="Edit" id="form6">
+            <input type="hidden" asp-for="GbvCaseId" />
+            <input type="hidden" asp-for="formtype" value="6" />
+            <div class="form-horizontal">
+                <span class="help-block col-md-offset-2">Did you refer the survivor to psychosocial services centers?</span>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" value="1" asp-for="ReferToPsychosocial" /> Yes
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" value="2" asp-for="ReferToPsychosocial" /> No
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" value="3" asp-for="ReferToPsychosocial" /> Currently under treatment
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" value="4" asp-for="ReferToPsychosocial" /> Services are not available
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" value="5" asp-for="ReferToPsychosocial" /> Services are not accepted
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" value="6" asp-for="ReferToPsychosocial" /> the survivor left the hospital without permission
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <span class="help-block col-md-offset-2">Did you refer the survivor to higher medical facilities?</span>
+                <div class="form-group">
+                    <div class="col-md-10 col-md-offset-2">
+                        <label class="radio-inline">
+                            <input asp-for="ReferToHigherMedical" type="radio" value="1" />Yes
+                        </label>
+                        <label class="radio-inline">
+                            <input asp-for="ReferToHigherMedical" type="radio" value="2" />No
+                        </label>
+                    </div>
+                </div>
+                <hr />
+                <span class="help-block col-md-offset-2">yes base on following reasons</span>
+                <div class="form-group">
+                    <div class="col-md-10 col-md-offset-2">
+                        <div class="checkbox">
+                            <label><input asp-for="YesBetterFacilities" type="checkbox" disabled>Better Facilities</label>
+                        </div>
+                        <div class="checkbox">
+                            <label><input asp-for="YesFpservices" type="checkbox" disabled>Family Planning Service</label>
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" asp-for="YesVaccination" disabled>Vaccination</label>
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" asp-for="YesConsulation" disabled>Consulation</label>
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" asp-for="YesVct" disabled>VCT</label>
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" asp-for="YesPregnancyTest" disabled>Pregnancy Test</label>
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" asp-for="YesOther" disabled>Other </label>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <span class="help-block col-md-offset-2">No base on following reasons</span>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-8">
+                        <div class="checkbox">
+                            <label><input type="checkbox" asp-for="NoServiceProvided" disabled>Services are Provided</label>
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" asp-for="NoServiceAccepted" disabled>Services are not Accepted</label>
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" asp-for="NoServiceAvailable"disabled >Services are not Available </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="save" class="btn btn-success" />
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div id="menu6" class="tab-pane fade">
+        <br />
+        <form asp-action="Edit" id="form7">
+            <div class="form-horizontal">
+                <input type="hidden" asp-for="GbvCaseId" />
+                <input type="hidden" asp-for="formtype" value="7" />
+                <span class="help-block col-md-offset-2">where was the survivor referred to for other services</span>
+                <div class="form-group">
+                    <div class="col-md-8 col-md-offset-2">
+                    <div class="checkbox">
+                        <label><input type="checkbox" asp-for="RefFpcenter">Referral/family protection center</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" asp-for="Mowadowa">MOWA/DOWA</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" asp-for="Aihrc">AIHRC </label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" asp-for="SafeHouse">Safe house/shelter</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" asp-for="BackHome">Back Home</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" asp-for="Other">Other (specify) </label>
+                    </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" asp-for="RefNotAvailable">Referral service is not available </label>
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" asp-for="RefNotAccepted">Referral service is not accepted </label>
+                        </div>
+                      </div>
+                </div>
+
+                <hr />
+                <span class="help-block col-md-offset-2">specify other here</span>
+                <div class="form-group">
+                    <div class="col-md-8 col-md-offset-2">
+                        <input asp-for="OtherSpecify" class="form-control" />
+                        <span asp-validation-for="OtherSpecify" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <hr />
+                <span class="help-block col-md-offset-2">is the survivor willing legal action ?</span>
+                <div class="form-group">
+                    <div class="col-md-10 col-md-offset-2">
+                        <label class="radio-inline">
+                            <input type="radio" asp-for="IsSurvivorWilling" value="1"/>Yes
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" asp-for="IsSurvivorWilling" value="2" />No
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" asp-for="IsSurvivorWilling" value="3" />Undecided
+                        </label>
+                    </div>
+                </div>
+                <hr />
+                <span class="help-block col-md-offset-2">Are the evidence collected? </span>
+                <div class="form-group">
+                    <div class="col-md-10 col-md-offset-2">
+                        <label class="radio-inline">
+                            <input type="radio" asp-for="EvidenceCollected" value="1" />Yes
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" asp-for="EvidenceCollected" value="2" />No
+                        </label>
+                    </div>
+                </div>
+                <hr />
+                <span class="help-block col-md-offset-2"> the survivor wants medical certificate? </span>
+                <div class="form-group">
+                    <div class="col-md-10 col-md-offset-2">
+                        <label class="radio-inline">
+                            <input type="radio" asp-for="MedicalCertificate" value="1" />Yes
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" asp-for="MedicalCertificate" value="2" />No
+                        </label>
+                    </div>
+                </div>
+                <hr />
+                <span class="help-block col-md-offset-2"> Appointment for next visit? </span>
+                <div class="form-group">
+                    <div class="col-md-10 col-md-offset-2">
+                        <label class="radio-inline">
+                            <input type="radio" asp-for="Appointment" value="1" />Yes
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" asp-for="Appointment" value="2" />No
+                        </label>
+                    </div>
+                </div>
+                <hr />
+                <span class="help-block col-md-offset-2"> Was the medical examiniation procedures explained in beginning stage? </span>
+                <div class="form-group">
+                    <div class="col-md-10 col-md-offset-2">
+                        <label class="radio-inline">
+                            <input type="radio" asp-for="MedExamProcedure" value="1" />Yes
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" asp-for="MedExamProcedure" value="2" />No
+                        </label>
+                    </div>
+                </div>
+                <hr />
+                <span class="help-block col-md-offset-2"> Was the consent taken before starting medical examinations? </span>
+                <div class="form-group">
+                    <div class="col-md-10 col-md-offset-2">
+                        <label class="radio-inline">
+                            <input type="radio" asp-for="ConsentTaken" value="1" />Yes
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" asp-for="ConsentTaken" value="2" />No
+                        </label>
+                    </div>
+                </div>
+                <hr />
+                <span class="help-block col-md-offset-2">Did the survivor of the relatives give consent for spreading the information? </span>
+                <div class="form-group">
+                    <div class="col-md-10 col-md-offset-2">
+                        <label class="radio-inline">
+                            <input type="radio" asp-for="SpreadInfo" value="1" />Yes
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" asp-for="SpreadInfo" value="2" />No
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="save" class="btn btn-success" />
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        $(document).ready(function () {
+
+            
+            if($('input[type=radio][name=ReferToHigherMedical]:checked').val() == 1){
+                $('input[name=YesVaccination').prop('disabled', false);
+                $('input[name=YesBetterFacilities').prop('disabled', false);
+                $('input[name=YesFpservices').prop('disabled', false);
+                $('input[name=YesVaccination').prop('disabled', false);
+                $('input[name=YesConsulation').prop('disabled', false);
+                $('input[name=YesVct').prop('disabled', false);
+                $('input[name=YesPregnancyTest').prop('disabled', false);
+                $('input[name=YesOther').prop('disabled', false);
+
+                $('input[name=NoServiceProvided').prop('disabled', true);
+                $('input[name=NoServiceAccepted').prop('disabled', true);
+                $('input[name=NoServiceAvailable').prop('disabled', true);
+            }
+            if ($('input[type=radio][name=ReferToHigherMedical]:checked').val() == 2) {
+                $('input[name=YesVaccination').prop('disabled', true);
+                $('input[name=YesBetterFacilities').prop('disabled', true);
+                $('input[name=YesFpservices').prop('disabled', true);
+                $('input[name=YesVaccination').prop('disabled', true);
+                $('input[name=YesConsulation').prop('disabled', true);
+                $('input[name=YesVct').prop('disabled', true);
+                $('input[name=YesPregnancyTest').prop('disabled', true);
+                $('input[name=YesOther').prop('disabled', true);
+
+                $('input[name=NoServiceProvided').prop('disabled', false);
+                $('input[name=NoServiceAccepted').prop('disabled', false);
+                $('input[name=NoServiceAvailable').prop('disabled', false);
+            }
+            if ($('input[type=radio][name=EvidenceOfPregnancy]').val()==1){
+                $("#pweeks").prop('disabled', false);
+
+            }
+            if ($('input[type=radio][name=EvidenceOfPregnancy]').val()==2){
+                $("#pweeks").prop('disabled', true);
+            }
+
+
+        $("#form1").submit(function (e) {
+            e.preventDefault();
+            var para = $('#guid').val();
+            var url = "/intake/edit/" + para;
+
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: $("#form1").serialize(), // serializes the form's elements.
+                success: function (data) {
+                new Noty({
+                        type: "success",
+                        layout : "bottomRight",
+                        text: 'General information successfully saved.',
+                     }).show();                
+                     },                
+            }).fail(function(){
+                    new Noty({
+                        type: "error",
+                        layout : "bottomRight",
+                        text: 'General information save failed',
+                     }).show() 
+            }
+            );
+
+            e.preventDefault(); // avoid to execute the actual submit of the form.
+        });
+
+        $("#form2").submit(function (e) {
+            e.preventDefault();
+            var para = $('#guid').val();
+            var url = "/intake/edit/" + para;
+
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: $("#form2").serialize(),
+                success: function (data) {
+                new Noty({
+                        type: "success",
+                        layout : "bottomRight",
+                        text: 'Incident information successfully saved.',
+                     }).show();                
+                     },                
+            }).fail(function(){
+                    new Noty({
+                        type: "error",
+                        layout : "bottomRight",
+                        text: 'Incident information save failed',
+                     }).show() 
+            }
+            );
+            e.preventDefault();
+        });
+
+        $("#form3").submit(function (e) {
+            e.preventDefault();
+            var para = $('#guid').val();
+            var url = "/intake/edit/" + para;
+
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: $("#form3").serialize(),
+                success: function (data) {
+                new Noty({
+                        type: "success",
+                        layout : "bottomRight",
+                        text: 'Suspect information successfully saved.',
+                     }).show();                
+                     },                
+            }).fail(function(){
+                    new Noty({
+                        type: "error",
+                        layout : "bottomRight",
+                        text: 'Suspect information save failed',
+                     }).show() 
+            }
+            );
+            e.preventDefault();
+        });
+
+        $("#form4").submit(function (e) {
+            e.preventDefault();
+            var para = $('#guid').val();
+            var url = "/intake/edit/" + para;
+
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: $("#form4").serialize(),
+                success: function (data) {
+                new Noty({
+                        type: "success",
+                        layout : "bottomRight",
+                        text: 'Medical information successfully saved.',
+                     }).show();                
+                     },                
+            }).fail(function(){
+                    new Noty({
+                        type: "error",
+                        layout : "bottomRight",
+                        text: 'Medical information save failed',
+                     }).show() 
+            }
+            );
+            e.preventDefault();
+        });
+        $("#form5").submit(function (e) {
+            e.preventDefault();
+            var para = $('#guid').val();
+            var url = "/intake/edit/" + para;
+
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: $("#form5").serialize(),
+                success: function (data) {
+                new Noty({
+                        type: "success",
+                        layout : "bottomRight",
+                        text: 'Treatement Details successfully saved.',
+                     }).show();                
+                     },                
+            }).fail(function(){
+                    new Noty({
+                        type: "error",
+                        layout : "bottomRight",
+                        text: 'Treatement Details save failed',
+                     }).show() 
+            }
+            );
+            e.preventDefault();
+        });
+
+        $("#form6").submit(function (e) {
+            e.preventDefault();
+            var para = $('#guid').val();
+            var url = "/intake/edit/" + para;
+
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: $("#form6").serialize(),
+                success: function (data) {
+                new Noty({
+                        type: "success",
+                        layout : "bottomRight",
+                        text: 'Further Actions successfully saved.',
+                     }).show();                
+                     },                
+            }).fail(function(){
+                    new Noty({
+                        type: "error",
+                        layout : "bottomRight",
+                        text: 'Further Actions save failed',
+                     }).show() 
+            }
+            );
+            e.preventDefault();
+        });
+
+
+        $("#form7").submit(function (e) {
+            e.preventDefault();
+            var para = $('#guid').val();
+            var url = "/intake/edit/" + para;
+
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: $("#form7").serialize(),
+                success: function (data) {
+                new Noty({
+                        type: "success",
+                        layout : "bottomRight",
+                        text: 'Other information successfully saved.',
+                     }).show();                
+                     },                
+            }).fail(function(){
+                    new Noty({
+                        type: "error",
+                        layout : "bottomRight",
+                        text: 'Other information save failed',
+                     }).show() 
+            }
+            );
+            e.preventDefault();
+        });
+
+        $('input[type=radio][name=EvidenceOfPregnancy]').change(function () {
+            if (this.value == 1) {
+                $("#pweeks").prop('disabled', false);
+            }
+            else if (this.value == 2) {
+                $("#pweeks").prop('disabled', true);
+            }
+        });
+
+        $('input[type=radio][name=ReferToHigherMedical]').change(function () {
+            if (this.value == 1) {
+                $('input[name=YesVaccination').prop('disabled', false);
+                $('input[name=YesBetterFacilities').prop('disabled', false);
+                $('input[name=YesFpservices').prop('disabled', false);
+                $('input[name=YesVaccination').prop('disabled', false);
+                $('input[name=YesConsulation').prop('disabled', false);
+                $('input[name=YesVct').prop('disabled', false);
+                $('input[name=YesPregnancyTest').prop('disabled', false);
+                $('input[name=YesOther').prop('disabled', false);
+
+                $('input[name=NoServiceProvided').prop('disabled', true);
+                $('input[name=NoServiceAccepted').prop('disabled', true);
+                $('input[name=NoServiceAvailable').prop('disabled', true);
+            }
+            else if (this.value == 2) {
+                $('input[name=YesVaccination').prop('disabled', true);
+                $('input[name=YesBetterFacilities').prop('disabled', true);
+                $('input[name=YesFpservices').prop('disabled', true);
+                $('input[name=YesVaccination').prop('disabled', true);
+                $('input[name=YesConsulation').prop('disabled', true);
+                $('input[name=YesVct').prop('disabled', true);
+                $('input[name=YesPregnancyTest').prop('disabled', true);
+                $('input[name=YesOther').prop('disabled', true);
+
+                $('input[name=NoServiceProvided').prop('disabled', false);
+                $('input[name=NoServiceAccepted').prop('disabled', false);
+                $('input[name=NoServiceAvailable').prop('disabled', false);
+            }
+        });
+
+        });
+
+    </script>
+}

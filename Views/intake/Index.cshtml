@@ -1,0 +1,377 @@
+@model IEnumerable<rmc.Models.IntakeInfo>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.ReferredBy)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.RefOther)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ExamDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ExamTime)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.IncDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.IncTime)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.IncLocation)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.IncLocationOther)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.IncType)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.IncReportToOther)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Relationship)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NoOfPerpetrators)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PerpetratorOccupation)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OccupationOther)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AgeGroup)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.StiStatus)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.HcvHbs)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EvidenceOfPregnancy)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PregnancyWeeks)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Results)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ResultsOther)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PsychologicalStatus)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ExaminedForAids)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SstPrevenMed)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MedForInjuries)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VacForTreat)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ReferToPsychosocial)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ReferToHigherMedical)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.YesBetterFacilities)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.YesFpservices)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.YesVaccination)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.YesConsulation)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.YesVct)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.YesPregnancyTest)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.YesOther)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NoServiceProvided)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NoServiceAccepted)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NoServiceAvailable)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.RefFpcenter)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Mowadowa)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Aihrc)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SafeHouse)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BackHome)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Other)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OtherSpecify)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.RefNotAvailable)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.RefNotAccepted)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.IsSurvivorWilling)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EvidenceCollected)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MedicalCertificate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Appointment)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MedExamProcedure)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ConsentTaken)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SpreadInfo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.UserName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LastUpdate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.InsertDate)
+                </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GbvCase)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReferredBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RefOther)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExamDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExamTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IncDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IncTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IncLocation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IncLocationOther)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IncType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IncReportToOther)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Relationship)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NoOfPerpetrators)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PerpetratorOccupation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OccupationOther)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AgeGroup)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StiStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HcvHbs)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EvidenceOfPregnancy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PregnancyWeeks)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Results)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ResultsOther)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PsychologicalStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExaminedForAids)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SstPrevenMed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MedForInjuries)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VacForTreat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReferToPsychosocial)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReferToHigherMedical)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.YesBetterFacilities)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.YesFpservices)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.YesVaccination)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.YesConsulation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.YesVct)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.YesPregnancyTest)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.YesOther)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NoServiceProvided)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NoServiceAccepted)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NoServiceAvailable)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RefFpcenter)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mowadowa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Aihrc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SafeHouse)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BackHome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Other)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OtherSpecify)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RefNotAvailable)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RefNotAccepted)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsSurvivorWilling)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EvidenceCollected)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MedicalCertificate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Appointment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MedExamProcedure)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ConsentTaken)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SpreadInfo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastUpdate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InsertDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GbvCase.GbvCaseId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IntakeInfoId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IntakeInfoId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IntakeInfoId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

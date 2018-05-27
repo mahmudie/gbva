@@ -1,0 +1,71 @@
+@model IEnumerable<rmc.Models.Districts>
+
+@{
+    ViewData["Title"] = "Districts";
+}
+<div class="container">
+<h2>Districts</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table" id="tbl">
+    <thead>
+        <tr>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.DistName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DistNameDari)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DistNamePashto)
+                </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProvCodeNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DistName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DistNameDari)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DistNamePashto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProvCodeNavigation.ProvName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedDate)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.DistCode">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.DistCode">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.DistCode">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</div>
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            var table = $('#tbl').DataTable({
+                responsive: true,
+            });
+        });
+    </script>
+}

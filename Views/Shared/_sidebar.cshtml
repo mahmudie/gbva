@@ -1,0 +1,101 @@
+        
+@using Microsoft.AspNetCore.Identity
+@using rmc.Models
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@using rmc.Extensions  
+
+@if (User.IsInRole("dataentry"))
+{   
+    <aside class="main-sidebar">
+
+      <section class="sidebar">
+      <ul class="sidebar-menu">
+        <li class="header">MAIN NAVIGATION</li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-plus-square"></i> <span>Data Entry</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="/gbv"><i class="fa fa-plus-circle"></i>GBV Reports</a></li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+    </aside>
+}
+@if ((User.IsInRole("administrator")&&User.MyProperty()!="1"))
+{   
+    <aside class="main-sidebar">
+
+      <section class="sidebar">
+      <ul class="sidebar-menu">
+        <li class="header">MAIN NAVIGATION</li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-search-plus"></i> <span>Data Entry</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+              <li><a href="/gbv/list"><i class="fa fa-eye"></i>GBV Reports</a></li>       
+          </ul>
+        </li>
+      </ul>
+    </section>
+    </aside>
+}
+@if(User.IsInRole("administrator")&&User.MyProperty()=="1")
+{
+
+    <aside class="main-sidebar">
+
+      <section class="sidebar">
+      <ul class="sidebar-menu">
+        <li class="header">MAIN NAVIGATION</li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-search-plus"></i> <span>View Reports</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+              <li><a href="/gbv/list"><i class="fa fa-eye"></i>GBV Reports</a></li>       
+          </ul>
+        </li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-table"></i> <span>Master Data</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+              <li><a href="/facilities"><i class="fa fa-location-arrow"></i>Facilities</a></li>
+              <li><a href="/agencytypes"><i class="fa fa-location-arrow"></i>Facility Types</a></li>
+              <li><a href="/Districts"><i class="fa fa-location-arrow"></i>Districts</a></li>
+              <li><a href="/provinces"><i class="fa fa-location-arrow"></i>Provinces</a></li>
+          </ul>
+        </li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-user-plus"></i> <span>User Management</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+              <li><a href="/account/userslist"><i class="fa fa-users"></i>Users List</a></li>    
+              <li><a href="/tenants"><i class="fa fa-link"></i>Tenants</a></li>        
+                  
+          </ul>
+        </li>
+      </ul>
+    </section>
+    </aside>
+}

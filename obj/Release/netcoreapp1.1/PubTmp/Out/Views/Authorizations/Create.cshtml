@@ -1,0 +1,69 @@
+@model rmc.Models.Authorization
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<form asp-action="Create">
+    <div class="form-horizontal">
+        <h4>Authorization</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="GbvCaseId" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <select asp-for="GbvCaseId" class ="form-control" asp-items="ViewBag.GbvCaseId"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Islessthan18" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Islessthan18" class="form-control" />
+                <span asp-validation-for="Islessthan18" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="IsSigned" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="IsSigned" class="form-control" />
+                <span asp-validation-for="IsSigned" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="UserName" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="UserName" class="form-control" />
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="LastUpdate" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="LastUpdate" class="form-control" />
+                <span asp-validation-for="LastUpdate" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="InsertDate" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="InsertDate" class="form-control" />
+                <span asp-validation-for="InsertDate" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

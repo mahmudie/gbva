@@ -1,0 +1,54 @@
+@model rmc.Models.Authorization
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Authorization</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Islessthan18)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Islessthan18)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IsSigned)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IsSigned)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.UserName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.UserName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LastUpdate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LastUpdate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.InsertDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.InsertDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.GbvCase)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.GbvCase.GbvCaseId)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.AuthorizationId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

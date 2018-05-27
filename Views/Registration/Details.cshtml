@@ -1,0 +1,114 @@
+@model rmc.Models.Registration
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Registration</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RptYear)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RptYear)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.RptMonth)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RptMonth)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IsIdp)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IsIdp)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TypeOfViolence)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TypeOfViolence)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.GbvHistory)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.GbvHistory)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.RefIn)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RefIn)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.RefOut)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RefOut)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceMedical)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ServiceMedical)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ServicePsycho)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ServicePsycho)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceRefLegal)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ServiceRefLegal)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceRefSafeHouse)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ServiceRefSafeHouse)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Remarks)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Remarks)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.UserName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.UserName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LastUpdate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LastUpdate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.InsertDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.InsertDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.GbvCase)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.GbvCase.GbvCaseId)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.RegistrationId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

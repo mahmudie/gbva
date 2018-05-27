@@ -1,0 +1,1092 @@
+﻿@model rmc.Models.ViewModels.GbvReport
+
+@{
+    ViewData["Title"] = "View GBV Report";
+}
+
+<br />
+<ul class="nav nav-tabs">
+    <li role="presentation" class="active"><a data-toggle="tab" href="#consent">Consent</a></li>
+    <li role="presentation"><a data-toggle="tab" href="#reg">Registration</a></li>
+    <li role="presentation"><a data-toggle="tab" href="#intake">IntakeInfo Info</a></li>
+    <li role="presentation"><a data-toggle="tab" href="#auth">Authorization</a></li>
+    <li role="presentation"><a asp-controller="Gbv" asp-action="list">back to List</a></li>
+</ul>
+<div class="tab-content">
+
+    <div id="consent" class="tab-pane fade in active">
+        <div class="container">
+            <form>
+                <div class="form-horizontal">
+                    <br />
+                    <div class="form-group">
+                        <label asp-for="Consent.PhysicalExams" class="col-md-2 control-label"></label>
+                        <label class="checkbox-inline">
+                            <input readonly asp-for="Consent.PhysicalExams" type="radio" value="1"> Yes
+                        </label>
+                        <label class="checkbox-inline">
+                            <input readonly asp-for="Consent.PhysicalExams" type="radio" value="2"> No
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Consent.PelvicExams" class="col-md-2 control-label"></label>
+                        <label class="checkbox-inline">
+                            <input readonly asp-for="Consent.PelvicExams" type="radio" value="1"> Yes
+                        </label>
+                        <label class="checkbox-inline">
+                            <input readonly asp-for="Consent.PelvicExams" type="radio" value="2"> No
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Consent.SpeculumExams" class="col-md-2 control-label"></label>
+                        <label class="checkbox-inline">
+                            <input readonly asp-for="Consent.SpeculumExams" type="radio" value="1"> Yes
+                        </label>
+                        <label class="checkbox-inline">
+                            <input readonly asp-for="Consent.SpeculumExams" type="radio" value="2"> No
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Consent.OtherExams" class="col-md-2 control-label"></label>
+                        <label class="checkbox-inline">
+                            <input readonly asp-for="Consent.OtherExams" type="radio" value="1"> Yes
+                        </label>
+                        <label class="checkbox-inline">
+                            <input readonly asp-for="Consent.OtherExams" type="radio" value="2"> No
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Consent.BloodExams" class="col-md-2 control-label"></label>
+                        <label asp-for="Consent.BloodExams" class="checkbox-inline">
+                            <input readonly asp-for="Consent.BloodExams" type="radio" value="1"> Yes
+                        </label>
+                        <label class="checkbox-inline">
+                            <input readonly asp-for="Consent.BloodExams" type="radio" value="2"> No
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Consent.ProvisionOfInfo" class="col-md-2 control-label"></label>
+                        <label class="checkbox-inline">
+                            <input readonly asp-for="Consent.ProvisionOfInfo" type="radio" value="1"> Yes
+                        </label>
+                        <label class="checkbox-inline">
+                            <input readonly asp-for="Consent.ProvisionOfInfo" type="radio" value="2"> No
+                        </label>
+                    </div>
+                </div>
+            </form>
+            <hr />
+        </div>
+        </div>
+    <div id="reg" class="tab-pane fade in">
+        <div class="container">
+            <form>
+                <div class="form-horizontal">
+                    <hr />
+                    <div class="form-group">
+                        <label asp-for="Registration.RptYear" class="col-md-2 control-label"></label>
+                        <div class="col-md-5">
+                            <input readonly asp-for="Registration.RptYear" class="form-control" />
+                            <span asp-validation-for="Registration.RptYear" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Registration.RptMonth" class="col-md-2 control-label"></label>
+                        <div class="col-md-5">
+                            <input readonly asp-for="Registration.RptMonth" class="form-control" />
+                            <span asp-validation-for="Registration.RptMonth" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Registration.IsIdp" class="col-md-2 control-label">
+                        </label>
+                        <div class="col-md-5">
+                            <label asp-for="Registration.IsIdp" class="radio-inline">
+                                <input readonly asp-for="Registration.IsIdp" type="radio" value="1"> Yes
+                            </label>
+                            <label class="radio-inline">
+                                <input readonly asp-for="Registration.IsIdp" type="radio" value="2"> No
+                            </label>
+                            <label class="radio-inline">
+                                <input readonly asp-for="Registration.IsIdp" type="radio" value="3"> Unknown
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Registration.TypeOfViolence" class="col-md-2 control-label"></label>
+                        <div class="col-md-8">
+                            <label class="radio-inline">
+                                <input readonly asp-for="Registration.TypeOfViolence" type="radio" value="1"> Rape
+                            </label>
+                            <label class="radio-inline">
+                                <input readonly asp-for="Registration.TypeOfViolence" type="radio" value="2"> Sexual Assault
+                            </label>
+                            <label class="radio-inline">
+                                <input readonly asp-for="Registration.TypeOfViolence" type="radio" value="3"> Physical Violence
+                            </label>
+                            <label class="radio-inline">
+                                <input readonly asp-for="Registration.TypeOfViolence" type="radio" value="4"> Forced Marriage
+                            </label>
+                            <label class="radio-inline">
+                                <input readonly asp-for="Registration.TypeOfViolence" type="radio" value="5"> Deprivation from Resources and Opportunities
+                            </label>
+                            <label class="radio-inline">
+                                <input readonly asp-for="Registration.TypeOfViolence" type="radio" value="6"> Phsicological/emotional violence
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Registration.GbvHistory" class="col-md-2 control-label"></label>
+                        <div class="col-md-8">
+                            <label class="radio-inline">
+                                <input readonly asp-for="Registration.GbvHistory" type="radio" value="1"> Yes
+                            </label>
+                            <label class="radio-inline">
+                                <input readonly asp-for="Registration.GbvHistory" type="radio" value="2"> No
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Registration.RefIn" class="col-md-2 control-label"></label>
+                        <div class="col-md-8">
+                            <label class="radio-inline">
+                                <input readonly asp-for="Registration.RefIn" type="radio" value="1"> self-referal or marham
+                            </label>
+                            <label class="radio-inline">
+                                <input readonly asp-for="Registration.RefIn" type="radio" value="2"> health facilities
+                            </label>
+                            <label class="radio-inline">
+                                <input readonly asp-for="Registration.RefIn" type="radio" value="3"> psychosocial centers
+                            </label>
+                            <label class="radio-inline">
+                                <input readonly asp-for="Registration.RefIn" type="radio" value="4"> community
+                            </label>
+                            <label class="radio-inline">
+                                <input readonly asp-for="Registration.RefIn" type="radio" value="5"> livelihood program
+                            </label>
+                            <label class="radio-inline">
+                                <input readonly asp-for="Registration.RefIn" type="radio" value="6"> livelihood program
+                            </label>
+                            <label class="radio-inline">
+                                <input readonly asp-for="Registration.RefIn" type="radio" value="7"> police/other security institutions
+                            </label>
+                            <label class="radio-inline">
+                                <input readonly asp-for="Registration.RefIn" type="radio" value="8"> legal  services centers
+                            </label>
+                            <label class="radio-inline">
+                                <input readonly asp-for="Registration.RefIn" type="radio" value="9"> teacher
+                            </label>
+                            <label class="radio-inline">
+                                <input readonly asp-for="Registration.RefIn" type="radio" value="8"> government services
+                            </label>
+                            <label class="radio-inline">
+                                <input readonly asp-for="Registration.RefIn" type="radio" value="11"> other humantarian organizations
+                            </label>
+                            <label class="radio-inline">
+                                <input readonly asp-for="Registration.RefIn" type="radio" value="12"> others
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Registration.RefOut" class="col-md-2 control-label"></label>
+                        <div class="col-md-8">
+                            <label class="radio-inline">
+                                <input readonly asp-for="Registration.RefOut" type="radio" value="2"> Health Facilities
+                            </label>
+                            <label class="radio-inline">
+                                <input readonly asp-for="Registration.RefOut" type="radio" value="3"> Psychosocial Centers
+                            </label>
+                            <label class="radio-inline">
+                                <input readonly asp-for="Registration.RefOut" type="radio" value="5"> Livelihood Program
+                            </label>
+                            <label class="radio-inline">
+                                <input readonly asp-for="Registration.RefOut" type="radio" value="6"> Protection Center
+                            </label>
+                            <label class="radio-inline">
+                                <input readonly asp-for="Registration.RefOut" type="radio" value="7"> Police/Other Security institutions
+                            </label>
+                            <label class="radio-inline">
+                                <input readonly asp-for="Registration.RefOut" type="radio" value="8"> Legal Service Centers
+                            </label>
+                            <label class="radio-inline">
+                                <input readonly asp-for="Registration.RefOut" type="radio" value="10"> Governmental Services
+                            </label>
+                            <label class="radio-inline">
+                                <input readonly asp-for="Registration.RefOut" type="radio" value="11"> Other Humanitarian Organizations
+                            </label>
+                            <label class="radio-inline">
+                                <input readonly asp-for="Registration.RefOut" type="radio" value="12"> Others
+                            </label>
+                            <label class="radio-inline">
+                                <input readonly asp-for="Registration.RefOut" type="radio" value="13"> Nowhere
+                            </label>
+                            <span asp-validation-for="Registration.RefOut" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Registration.ServiceMedical" class="col-md-2 control-label"></label>
+                        <div class="col-md-8">
+                            <label class="checkbox checkbox-inline">
+                                <input readonly asp-for="Registration.ServiceMedical" class="checkbox" />
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Registration.ServicePsycho" class="col-md-2 control-label"></label>
+                        <div class="col-md-8">
+                            <label class="checkbox checkbox-inline">
+                                <input readonly asp-for="Registration.ServicePsycho" class="checkbox" />
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Registration.ServiceRefLegal" class="col-md-2 control-label"></label>
+                        <div class="col-md-8">
+                            <label class="checkbox checkbox-inline">
+                                <input readonly asp-for="Registration.ServiceRefLegal" class="checkbox" />
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Registration.ServiceRefSafeHouse" class="col-md-2 control-label"></label>
+                        <div class="col-md-8">
+                            <label class="checkbox checkbox-inline">
+                                <input readonly asp-for="Registration.ServiceRefSafeHouse" class="checkbox" />
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Registration.Remarks" class="col-md-2 control-label"></label>
+                        <div class="col-md-8">
+                            <input readonly asp-for="Registration.Remarks" class="form-control" />
+                            <span asp-validation-for="Registration.Remarks" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <hr />
+                </div>
+            </form>
+        </div>
+        </div>
+    <br />
+
+    <div id="intake" class="tab-pane fade in container">
+        <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#home">General Information</a></li>
+            <li><a data-toggle="tab" href="#menu1">incident</a></li>
+            <li><a data-toggle="tab" href="#menu2">Suspect Info</a></li>
+            <li><a data-toggle="tab" href="#menu3">Medical History</a></li>
+            <li><a data-toggle="tab" href="#menu4">Treatment Detail</a></li>
+            <li><a data-toggle="tab" href="#menu5">Further Actions</a></li>
+            <li><a data-toggle="tab" href="#menu6">Other</a></li>
+        </ul>
+        <br />
+        <div class="tab-content">
+            <div id="home" class="tab-pane fade in active">
+                <br />
+                <form asp-action="Edit" id="form1">
+                    <div class="form-horizontal">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <span class="help-block col-md-offset-2">who or which organization did refer the survivor to you</span>
+                        <div class="form-group">
+                            <div class="col-md-10 col-md-offset-2">
+                                <label class="radio-inline">
+                                    <input readonly asp-for="IntakeInfo.ReferredBy" type="radio"  value="1"> self-referal or marham
+                                </label>
+                                <label class="radio-inline">
+                                    <input readonly asp-for="IntakeInfo.ReferredBy" type="radio"  value="2"> health facilities
+                                </label>
+                                <label class="radio-inline">
+                                    <input readonly asp-for="IntakeInfo.ReferredBy" type="radio"  value="3"> psychosocial centers
+                                </label>
+                                <label class="radio-inline">
+                                    <input readonly asp-for="IntakeInfo.ReferredBy" type="radio"  value="4"> community
+                                </label>
+                                <label class="radio-inline">
+                                    <input readonly asp-for="IntakeInfo.ReferredBy" type="radio"  value="5"> livelihood program
+                                </label>
+                                <label class="radio-inline">
+                                    <input readonly asp-for="IntakeInfo.ReferredBy" type="radio"  value="6"> livelihood program
+                                </label>
+                                <label class="radio-inline">
+                                    <input readonly asp-for="IntakeInfo.ReferredBy" type="radio"  value="7"> police/other security institutions
+                                </label>
+                                <label class="radio-inline">
+                                    <input readonly asp-for="IntakeInfo.ReferredBy" type="radio"  value="8"> legal  services centers
+                                </label>
+                                <label class="radio-inline">
+                                    <input readonly asp-for="IntakeInfo.ReferredBy" type="radio"  value="9"> teacher
+                                </label>
+                                <label class="radio-inline">
+                                    <input readonly asp-for="IntakeInfo.ReferredBy" type="radio"  value="10"> government services
+                                </label>
+                                <label class="radio-inline">
+                                    <input readonly asp-for="IntakeInfo.ReferredBy" type="radio"  value="11"> other humantarian organizations
+                                </label>
+                                <label class="radio-inline">
+                                    <input readonly asp-for="IntakeInfo.ReferredBy" type="radio"  value="12"> others
+                                </label>
+                            </div>
+                        </div>
+                        <hr />
+                        <span class="help-block col-md-offset-2">specify other here</span>
+                        <div class="form-group">
+                            <div class="col-md-4 col-md-offset-2">
+                                <input readonly asp-for="IntakeInfo.RefOther" class="form-control" />
+                                <span asp-validation-for="IntakeInfo.RefOther" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-6">
+                                <label asp-for="IntakeInfo.ExamDate" class="col-md-4 control-label"></label>
+                                <div class="col-md-6">
+                                    <input readonly asp-for="IntakeInfo.ExamDate" class="form-control" />
+                                    <span asp-validation-for="IntakeInfo.ExamDate" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label asp-for="IntakeInfo.ExamTime" class="col-md-4 control-label"></label>
+                                    <div class="col-md-6">
+                                        <input readonly asp-for="IntakeInfo.ExamTime" class="form-control" />
+                                        <span asp-validation-for="IntakeInfo.ExamTime" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div id="menu1" class="tab-pane fade">
+                <br />
+                <form>
+                    <div class="form-horizontal">
+                        <span class="col-md-offset-2 help-block">incident date and time</span>
+                        <div class="form-group">
+                            <label asp-for="IntakeInfo.IncDate" type="date" class="col-md-2 control-label"></label>
+                            <div class="col-md-8">
+                                <input readonly asp-for="IntakeInfo.IncDate" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="IntakeInfo.IncTime" class="col-md-2 control-label"></label>
+                            <div class="col-md-8">
+                                <input readonly asp-for="IntakeInfo.IncTime" class="form-control" />
+                            </div>
+                        </div>
+                        <hr />
+
+                        <span class="col-md-offset-2 help-block">incident location</span>
+                        <div class="form-group">
+                            <label asp-for="IntakeInfo.IncLocation" class="col-md-2 control-label"></label>
+                            <div class="col-md-10">
+                                <div class="radio">
+                                    <label>
+                                        <input readonly asp-for="IntakeInfo.IncLocation" type="radio" value="1"> Bush/forest
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input readonly asp-for="IntakeInfo.IncLocation" type="radio" value="2"> garden/cultivated field
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input readonly asp-for="IntakeInfo.IncLocation" type="radio" value="3"> School
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input readonly asp-for="IntakeInfo.IncLocation" type="radio" value="4"> Road
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input readonly asp-for="IntakeInfo.IncLocation" type="radio" value="5"> Survivor home
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input readonly asp-for="IntakeInfo.IncLocation" type="radio" value="6"> Prepator's home
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input readonly asp-for="IntakeInfo.IncLocation" type="radio" value="7"> other
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <span class="col-md-offset-2 help-block">specify other here</span>
+                        <div class="form-group">
+                            <label asp-for="IntakeInfo.IncLocationOther" class="col-md-2 control-label"></label>
+                            <div class="col-md-10">
+                                <input readonly asp-for="IntakeInfo.IncLocationOther" class="form-control" />
+                                <span asp-validation-for="IntakeInfo.IncLocationOther" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <hr />
+
+                        <span class="col-md-offset-2 help-block">primary type of GBV incedent</span>
+                        <div class="form-group">
+                            <label asp-for="IntakeInfo.IncType" class="col-md-2 control-label"></label>
+                            <div class="col-md-10">
+                                <div class="radio">
+                                    <label>
+                                        <input readonly asp-for="IntakeInfo.IncType" type="radio" value="1"> Rape
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input readonly asp-for="IntakeInfo.IncType" type="radio" value="2"> Sexual Assult
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input readonly asp-for="IntakeInfo.IncType" type="radio" value="3"> Physical Assult
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input readonly asp-for="IntakeInfo.IncType" type="radio" value="4"> Forced Marriage
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input readonly asp-for="IntakeInfo.IncType" type="radio" value="5"> Deprivation from resources and opportunities
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input readonly asp-for="IntakeInfo.IncType" type="radio" value="6"> psychological/emotional violence
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <hr />
+                        <span class="col-md-offset-2 help-block">has the survivor reported the incident to other place</span>
+                        <div class="form-group">
+                            <div class="col-md-10 col-md-offset-2">
+                                <div class="radio">
+                                    <label>
+                                        <input readonly asp-for="IntakeInfo.IncReportToOther" type="radio" value="1"> Yes
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input readonly asp-for="IntakeInfo.IncReportToOther" type="radio" value="2"> No
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input readonly asp-for="IntakeInfo.IncReportToOther" type="radio" value="3"> Unknown
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div id="menu2" class="tab-pane fade">
+                <br />
+                <form >
+                    <div class="form-horizontal">
+                        <span class="help-block col-md-offset-2">relationship of prepetrator to victim</span>
+                        <div class="form-group">
+                            <label asp-for="IntakeInfo.Relationship" class="col-md-2 control-label"></label>
+                            <div class="col-md-10">
+                                <div class="radio">
+                                    <label>
+                                        <input readonly type="radio" asp-for="IntakeInfo.Relationship" value="1" /> Spouse
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input readonly type="radio" asp-for="IntakeInfo.Relationship" value="2" /> Family member other than spouse and custodian
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input readonly type="radio" asp-for="IntakeInfo.Relationship" value="3" /> Main custodian other than spouse
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input readonly type="radio" asp-for="IntakeInfo.Relationship" value="4" /> Close/old friend
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input readonly type="radio" asp-for="IntakeInfo.Relationship" value="5" /> Service Provider
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input readonly type="radio" asp-for="IntakeInfo.Relationship" value="6" /> Other must be specified
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input readonly type="radio" asp-for="IntakeInfo.Relationship" value="7" /> Unknown
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="help-block col-md-offset-2">no of prepetrator </span>
+                        <div class="form-group">
+                            <label asp-for="IntakeInfo.NoOfPerpetrators" class="col-md-2 control-label"></label>
+                            <div class="col-md-10">
+                                <div class="radio">
+                                    <label>
+                                        <input readonly type="radio" asp-for="IntakeInfo.NoOfPerpetrators" value="1" /> 1
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input readonly type="radio" asp-for="IntakeInfo.NoOfPerpetrators" value="2" /> 2
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input readonly type="radio" asp-for="IntakeInfo.NoOfPerpetrators" value="3" /> 3
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input readonly type="radio" asp-for="IntakeInfo.NoOfPerpetrators" value="4" /> more than three
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input readonly type="radio" asp-for="IntakeInfo.NoOfPerpetrators" value="5" /> Unknown
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <hr />
+                        <span class="help-block col-md-offset-2">prepetrator's occupation</span>
+                        <div class="form-group">
+                            <label asp-for="IntakeInfo.PerpetratorOccupation" class="col-md-2 control-label"></label>
+                            <div class="col-md-10">
+                                <div class="radio">
+                                    <label>
+                                        <input readonly type="radio" asp-for="IntakeInfo.PerpetratorOccupation" value="1" /> Government Employee
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input readonly type="radio" asp-for="IntakeInfo.PerpetratorOccupation" value="2" /> NGO Employee
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input readonly type="radio" asp-for="IntakeInfo.PerpetratorOccupation" value="3" /> Law-Sector
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input readonly type="radio" asp-for="IntakeInfo.PerpetratorOccupation" value="4" /> Teacher
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input readonly type="radio" asp-for="IntakeInfo.PerpetratorOccupation" value="5" /> Health provider
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input readonly type="radio" asp-for="IntakeInfo.PerpetratorOccupation" value="6" /> Military
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input readonly type="radio" asp-for="IntakeInfo.PerpetratorOccupation" value="7" /> Religious elder/leader
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input readonly type="radio" asp-for="IntakeInfo.PerpetratorOccupation" value="8" /> Other(must be specified)
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input readonly type="radio" asp-for="IntakeInfo.PerpetratorOccupation" value="9" /> Unknown
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <hr />
+                        <span class="help-block col-md-offset-2">specify other here</span>
+                        <div class="form-group">
+                            <label asp-for="IntakeInfo.OccupationOther" class="col-md-2 control-label"></label>
+                            <div class="col-md-8">
+                                <input readonly asp-for="IntakeInfo.OccupationOther" class="form-control" />
+                                <span asp-validation-for="IntakeInfo.OccupationOther" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div id="menu3" class="tab-pane fade">
+                <br />
+                <form >
+                    <div class="form-horizontal">
+                        <span class="help-block col-md-offset-2">Age Group</span>
+                        <div class="form-group">
+                            <div class="col-md-10 col-md-offset-2">
+                                <label class="radio-inline">
+                                    <input readonly type="radio" asp-for="IntakeInfo.AgeGroup" value="1" />Child-blow 18 year
+                                </label>
+                                <label class="radio-inline">
+                                    <input readonly type="radio" asp-for="IntakeInfo.AgeGroup" value="2" /> Adult- 18-49 year
+                                </label>
+                                <label class="radio-inline">
+                                    <input readonly type="radio" asp-for="IntakeInfo.AgeGroup" value="3" />Elderly- 50 plus
+                                </label>
+                            </div>
+                        </div>
+                        <hr />
+                        <span class="help-block col-md-offset-2">STI status of the survivor,including HIV/AIDS</span>
+                        <div class="form-group">
+                            <div class="col-md-10 col-md-offset-2">
+                                <label class="radio-inline">
+                                    <input readonly type="radio" asp-for="IntakeInfo.StiStatus" value="1" />Negative
+                                </label>
+                                <label class="radio-inline">
+                                    <input readonly type="radio" asp-for="IntakeInfo.StiStatus" value="2" />Positive
+                                </label>
+                                <label class="radio-inline">
+                                    <input readonly type="radio" asp-for="IntakeInfo.StiStatus" value="3" />Un-Clear
+                                </label>
+                            </div>
+                        </div>
+                        <hr />
+                        <span class="help-block col-lg-offset-2">HCV/HVS(Hepatitis)</span>
+                        <div class="form-group">
+                            <div class="col-md-10 col-md-offset-2">
+                                <label class="radio-inline">
+                                    <input readonly type="radio" asp-for="IntakeInfo.HcvHbs" value="1" />Negative
+                                </label>
+                                <label class="radio-inline">
+                                    <input readonly type="radio" asp-for="IntakeInfo.HcvHbs" value="2" />Positive
+                                </label>
+                                <label class="radio-inline">
+                                    <input readonly type="radio" asp-for="IntakeInfo.HcvHbs" value="3" />Un-Clear
+                                </label>
+                            </div>
+                        </div>
+                        <hr />
+                        <span class="help-block col-lg-offset-2">Evidence of Pregnancy</span>
+                        <div class="form-group">
+                            <label asp-for="IntakeInfo.EvidenceOfPregnancy" class="col-md-2 control-label"></label>
+                            <div class="col-md-10">
+                                <label class="radio-inline">
+                                    <input readonly type="radio" asp-for="IntakeInfo.EvidenceOfPregnancy" value="1" />Yes
+                                </label>
+                                <label class="radio-inline">
+                                    <input readonly type="radio" asp-for="IntakeInfo.EvidenceOfPregnancy" value="2" />No
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="IntakeInfo.PregnancyWeeks" class="col-md-2 control-label"></label>
+                            <div class="col-md-4">
+                                <input readonly id="pweeks" asp-for="IntakeInfo.PregnancyWeeks" class="form-control" />
+                                <span asp-validation-for="IntakeInfo.PregnancyWeeks" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <hr />
+                        <span class="help-block col-lg-offset-2">Summary of the results including psychological status</span>
+                        <div class="form-group">
+                            <label asp-for="IntakeInfo.PsychologicalStatus" class="col-md-2 control-label"></label>
+                            <div class="col-md-10">
+                                <label class="radio-inline">
+                                    <input readonly type="radio" asp-for="IntakeInfo.PsychologicalStatus" value="1" />Injuries
+                                </label>
+                                <label class="radio-inline">
+                                    <input readonly type="radio" asp-for="IntakeInfo.PsychologicalStatus" value="2" />Trauma
+                                </label>
+                                <label class="radio-inline">
+                                    <input readonly type="radio" asp-for="IntakeInfo.PsychologicalStatus" value="3" />Other
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="IntakeInfo.ResultsOther" class="col-md-2 control-label"></label>
+                            <div class="col-md-8">
+                                <input readonly asp-for="IntakeInfo.ResultsOther" class="form-control" />
+                                <span asp-validation-for="IntakeInfo.ResultsOther" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <hr />
+                        <span class="help-block col-md-offset-2">explain the physical and pschological status of the survivor</span>
+                        <div class="form-group">
+                            <label asp-for="IntakeInfo.Results" class="col-md-2 control-label"></label>
+                            <div class="col-md-8">
+                                <input readonly asp-for="IntakeInfo.Results" class="form-control" />
+                                <span asp-validation-for="IntakeInfo.Results" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <hr />
+                        <span class="help-block col-lg-offset-2">Has the survivor been examined for AIDS ?</span>
+                        <div class="form-group">
+                            <div class="col-md-10 col-md-offset-2">
+                                <label class="radio-inline">
+                                    <input readonly asp-for="IntakeInfo.ExaminedForAids" type="radio" value="1" />Yes
+                                </label>
+                                <label class="radio-inline">
+                                    <input readonly asp-for="IntakeInfo.ExaminedForAids" type="radio" value="2" />No
+                                </label>
+                                <label class="radio-inline">
+                                    <input readonly asp-for="IntakeInfo.ExaminedForAids" type="radio" value="3" />Yes - positive
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div id="menu4" class="tab-pane fade">
+                <br />
+                <form >
+                    <div class="form-horizontal">
+                        <span class="help-block col-md-offset-2">STI prevention medication/treatment</span>
+                        <div class="form-group">
+                            <div class="col-md-10 col-md-offset-2">
+                                <div class="radio">
+                                    <label>
+                                        <input readonly type="radio" value="1" asp-for="IntakeInfo.SstPrevenMed" /> Yes
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input readonly type="radio" value="2" asp-for="IntakeInfo.SstPrevenMed" /> No
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input readonly type="radio" value="3" asp-for="IntakeInfo.SstPrevenMed" /> The survivir didn't want
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input readonly type="radio" value="4" asp-for="IntakeInfo.SstPrevenMed" /> Not Applicable
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input readonly type="radio" value="5" asp-for="IntakeInfo.SstPrevenMed" /> Not Available
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <hr />
+                        <span class="help-block col-md-offset-2">Medication for injuries</span>
+                        <div class="form-group">
+                            <div class="col-md-10 col-md-offset-2">
+
+                                <div class="radio">
+                                    <label>
+                                        <input readonly type="radio" value="1" asp-for="IntakeInfo.MedForInjuries" /> Yes
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input readonly type="radio" value="2" asp-for="IntakeInfo.MedForInjuries" /> No
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input readonly type="radio" value="3" asp-for="IntakeInfo.MedForInjuries" /> The survivir didn't want
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input readonly type="radio" value="4" asp-for="IntakeInfo.MedForInjuries" /> Not Applicable
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input readonly type="radio" value="5" asp-for="IntakeInfo.MedForInjuries" /> Not Available
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <hr />
+                        <span class="help-block col-md-offset-2">Vaccination for Tetanus</span>
+                        <div class="form-group">
+                            <div class="col-md-10 col-md-offset-2">
+                                <div class="radio">
+                                    <label>
+                                        <input readonly type="radio" value="1" asp-for="IntakeInfo.VacForTreat" /> Yes
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input readonly type="radio" value="2" asp-for="IntakeInfo.VacForTreat" /> No
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input readonly type="radio" value="3" asp-for="IntakeInfo.VacForTreat" /> The survivir didn't want
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input readonly type="radio" value="4" asp-for="IntakeInfo.VacForTreat" /> Not Applicable
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input readonly type="radio" value="5" asp-for="IntakeInfo.VacForTreat" /> Not Available
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div id="menu5" class="tab-pane fade">
+                <br />
+                <form >
+                    <div class="form-horizontal">
+                        <span class="help-block col-md-offset-2">Did you refer the survivor to psychosocial services centers?</span>
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <div class="radio">
+                                    <label>
+                                        <input readonly type="radio" value="1" asp-for="IntakeInfo.ReferToPsychosocial" /> Yes
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input readonly type="radio" value="2" asp-for="IntakeInfo.ReferToPsychosocial" /> No
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input readonly type="radio" value="3" asp-for="IntakeInfo.ReferToPsychosocial" /> Currently under treatment
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input readonly type="radio" value="4" asp-for="IntakeInfo.ReferToPsychosocial" /> Services are not available
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input readonly type="radio" value="5" asp-for="IntakeInfo.ReferToPsychosocial" /> Services are not accepted
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input readonly type="radio" value="6" asp-for="IntakeInfo.ReferToPsychosocial" /> the survivor left the hospital without permission
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <hr />
+                        <span class="help-block col-md-offset-2">Did you refer the survivor to higher medical facilities?</span>
+                        <div class="form-group">
+                            <div class="col-md-10 col-md-offset-2">
+                                <label class="radio-inline">
+                                    <input readonly asp-for="IntakeInfo.ReferToHigherMedical" type="radio" value="1" />Yes
+                                </label>
+                                <label class="radio-inline">
+                                    <input readonly asp-for="IntakeInfo.ReferToHigherMedical" type="radio" value="2" />No
+                                </label>
+                            </div>
+                        </div>
+                        <hr />
+                        <span class="help-block col-md-offset-2">yes base on following reasons</span>
+                        <div class="form-group">
+                            <div class="col-md-10 col-md-offset-2">
+                                <div class="checkbox">
+                                    <label><input readonly asp-for="IntakeInfo.YesBetterFacilities" type="checkbox" disabled>Better Facilities</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input readonly asp-for="IntakeInfo.YesFpservices" type="checkbox" disabled>Family Planning Service</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input readonly type="checkbox" asp-for="IntakeInfo.YesVaccination" disabled>Vaccination</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input readonly type="checkbox" asp-for="IntakeInfo.YesConsulation" disabled>Consulation</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input readonly type="checkbox" asp-for="IntakeInfo.YesVct" disabled>VCT</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input readonly type="checkbox" asp-for="IntakeInfo.YesPregnancyTest" disabled>Pregnancy Test</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input readonly type="checkbox" asp-for="IntakeInfo.YesOther" disabled>Other </label>
+                                </div>
+                            </div>
+                        </div>
+                        <hr />
+                        <span class="help-block col-md-offset-2">No base on following reasons</span>
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-8">
+                                <div class="checkbox">
+                                    <label><input readonly type="checkbox" asp-for="IntakeInfo.NoServiceProvided" disabled>Services are Provided</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input readonly type="checkbox" asp-for="IntakeInfo.NoServiceAccepted" disabled>Services are not Accepted</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input readonly type="checkbox" asp-for="IntakeInfo.NoServiceAvailable" disabled>Services are not Available </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div id="menu6" class="tab-pane fade">
+                <br />
+                <form >
+                    <div class="form-horizontal">
+                        <span class="help-block col-md-offset-2">where was the survivor referred to for other services</span>
+                        <div class="form-group">
+                            <div class="col-md-8 col-md-offset-2">
+                                <div class="checkbox">
+                                    <label><input readonly type="checkbox" asp-for="IntakeInfo.RefFpcenter">Referral/family protection center</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input readonly type="checkbox" asp-for="IntakeInfo.Mowadowa">MOWA/DOWA</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input readonly type="checkbox" asp-for="IntakeInfo.Aihrc">AIHRC </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input readonly type="checkbox" asp-for="IntakeInfo.SafeHouse">Safe house/shelter</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input readonly type="checkbox" asp-for="IntakeInfo.BackHome">Back Home</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input readonly type="checkbox" asp-for="IntakeInfo.Other">Other (specify) </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input readonly type="checkbox" asp-for="IntakeInfo.RefNotAvailable">Referral service is not available </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input readonly type="checkbox" asp-for="IntakeInfo.RefNotAccepted">Referral service is not accepted </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr />
+                        <span class="help-block col-md-offset-2">specify other here</span>
+                        <div class="form-group">
+                            <div class="col-md-8 col-md-offset-2">
+                                <input readonly asp-for="IntakeInfo.OtherSpecify" class="form-control" />
+                            </div>
+                        </div>
+
+                        <hr />
+                        <span class="help-block col-md-offset-2">is the survivor willing legal action ?</span>
+                        <div class="form-group">
+                            <div class="col-md-10 col-md-offset-2">
+                                <label class="radio-inline">
+                                    <input readonly type="radio" asp-for="IntakeInfo.IsSurvivorWilling" value="1" />Yes
+                                </label>
+                                <label class="radio-inline">
+                                    <input readonly type="radio" asp-for="IntakeInfo.IsSurvivorWilling" value="2" />No
+                                </label>
+                                <label class="radio-inline">
+                                    <input readonly type="radio" asp-for="IntakeInfo.IsSurvivorWilling" value="3" />Undecided
+                                </label>
+                            </div>
+                        </div>
+                        <hr />
+                        <span class="help-block col-md-offset-2">Are the evidence collected? </span>
+                        <div class="form-group">
+                            <div class="col-md-10 col-md-offset-2">
+                                <label class="radio-inline">
+                                    <input readonly type="radio" asp-for="IntakeInfo.EvidenceCollected" value="1" />Yes
+                                </label>
+                                <label class="radio-inline">
+                                    <input readonly type="radio" asp-for="IntakeInfo.EvidenceCollected" value="2" />No
+                                </label>
+                            </div>
+                        </div>
+                        <hr />
+                        <span class="help-block col-md-offset-2"> the survivor wants medical certificate? </span>
+                        <div class="form-group">
+                            <div class="col-md-10 col-md-offset-2">
+                                <label class="radio-inline">
+                                    <input readonly type="radio" asp-for="IntakeInfo.MedicalCertificate" value="1" />Yes
+                                </label>
+                                <label class="radio-inline">
+                                    <input readonly type="radio" asp-for="IntakeInfo.MedicalCertificate" value="2" />No
+                                </label>
+                            </div>
+                        </div>
+                        <hr />
+                        <span class="help-block col-md-offset-2"> Appointment for next visit? </span>
+                        <div class="form-group">
+                            <div class="col-md-10 col-md-offset-2">
+                                <label class="radio-inline">
+                                    <input readonly type="radio" asp-for="IntakeInfo.Appointment" value="1" />Yes
+                                </label>
+                                <label class="radio-inline">
+                                    <input readonly type="radio" asp-for="IntakeInfo.Appointment" value="2" />No
+                                </label>
+                            </div>
+                        </div>
+                        <hr />
+                        <span class="help-block col-md-offset-2"> Was the medical examiniation procedures explained in beginning stage? </span>
+                        <div class="form-group">
+                            <div class="col-md-10 col-md-offset-2">
+                                <label class="radio-inline">
+                                    <input readonly type="radio" asp-for="IntakeInfo.MedExamProcedure" value="1" />Yes
+                                </label>
+                                <label class="radio-inline">
+                                    <input readonly type="radio" asp-for="IntakeInfo.MedExamProcedure" value="2" />No
+                                </label>
+                            </div>
+                        </div>
+                        <hr />
+                        <span class="help-block col-md-offset-2"> Was the consent taken before starting medical examinations? </span>
+                        <div class="form-group">
+                            <div class="col-md-10 col-md-offset-2">
+                                <label class="radio-inline">
+                                    <input readonly type="radio" asp-for="IntakeInfo.ConsentTaken" value="1" />Yes
+                                </label>
+                                <label class="radio-inline">
+                                    <input readonly type="radio" asp-for="IntakeInfo.ConsentTaken" value="2" />No
+                                </label>
+                            </div>
+                        </div>
+                        <hr />
+                        <span class="help-block col-md-offset-2">Did the survivor of the relatives give consent for spreading the information? </span>
+                        <div class="form-group">
+                            <div class="col-md-10 col-md-offset-2">
+                                <label class="radio-inline">
+                                    <input readonly type="radio" asp-for="IntakeInfo.SpreadInfo" value="1" />Yes
+                                </label>
+                                <label class="radio-inline">
+                                    <input readonly type="radio" asp-for="IntakeInfo.SpreadInfo" value="2" />No
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
+        @section Scripts {
+            @{await Html.RenderPartialAsync("_ValidationScriptsPartial");
+            }
+            <script>
+
+                $(document).ready(function () {
+                    $(':radio').attr('disabled', true);
+                    $(':checkbox').attr('disabled', true);
+                });
+
+            </script>
+            }
+            

@@ -1,0 +1,42 @@
+@model rmc.Models.AuthorizationSub
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>AuthorizationSub</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AgencyName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AgencyName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Comment)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Comment)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.AgencyType)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AgencyType.AgencyTypeId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Authorization)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Authorization.AuthorizationId)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.AuthorizationSubId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

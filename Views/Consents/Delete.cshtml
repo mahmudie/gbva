@@ -1,0 +1,83 @@
+@model rmc.Models.Consent
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Consent</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <input type="hidden" asp-for="ConsentId" />
+        <dt>
+            @Html.DisplayNameFor(model => model.PhysicalExams)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PhysicalExams)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PelvicExams)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PelvicExams)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SpeculumExams)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SpeculumExams)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.OtherExams)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.OtherExams)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BloodExams)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BloodExams)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ProvisionOfInfo)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ProvisionOfInfo)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.UserName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.UserName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LastUpdate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LastUpdate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.InsertDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.InsertDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.GbvCase)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.GbvCase.GbvCaseId)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            <a asp-action="Index">Back to List</a>
+        </div>
+    </form>
+</div>

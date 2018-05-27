@@ -1,0 +1,59 @@
+@model rmc.Models.Authorization
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Authorization</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <input type="hidden" asp-for="AuthorizationId" />
+        <dt>
+            @Html.DisplayNameFor(model => model.Islessthan18)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Islessthan18)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IsSigned)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IsSigned)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.UserName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.UserName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LastUpdate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LastUpdate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.InsertDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.InsertDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.GbvCase)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.GbvCase.GbvCaseId)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            <a asp-action="Index">Back to List</a>
+        </div>
+    </form>
+</div>

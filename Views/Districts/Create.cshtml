@@ -1,0 +1,54 @@
+@model rmc.Models.Districts
+
+@{
+    ViewData["Title"] = "Create new district";
+}
+<div class="container">
+
+<form asp-action="Create">
+    <div class="form-horizontal">
+        <h3>Create District</h3>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="DistName" class="col-md-2 control-label"></label>
+            <div class="col-md-8">
+                <input asp-for="DistName" class="form-control" />
+                <span asp-validation-for="DistName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="DistNameDari" class="col-md-2 control-label"></label>
+            <div class="col-md-8">
+                <input asp-for="DistNameDari" class="form-control" />
+                <span asp-validation-for="DistNameDari" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="DistNamePashto" class="col-md-2 control-label"></label>
+            <div class="col-md-8">
+                <input asp-for="DistNamePashto" class="form-control" />
+                <span asp-validation-for="DistNamePashto" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="ProvCode" class="col-md-2 control-label"></label>
+            <div class="col-md-8">
+                <select asp-for="ProvCode" class ="form-control" asp-items="ViewBag.ProvCode"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-8">
+                <input type="submit" value="Create" class="btn btn-block btn-primary" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

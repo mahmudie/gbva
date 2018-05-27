@@ -1,0 +1,61 @@
+@model rmc.Models.Provinces
+
+@{
+    ViewData["Title"] = "Create Province";
+}
+<div class="container">
+<h2>Create Province</h2>
+<form asp-action="Create">
+    <div class="form-horizontal">
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="Aghchocode" class="col-md-2 control-label"></label>
+            <div class="col-md-8">
+                <input asp-for="Aghchocode" class="form-control" />
+                <span asp-validation-for="Aghchocode" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Aimscode" class="col-md-2 control-label"></label>
+            <div class="col-md-8">
+                <input asp-for="Aimscode" class="form-control" />
+                <span asp-validation-for="Aimscode" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="ProvName" class="col-md-2 control-label"></label>
+            <div class="col-md-8">
+                <input asp-for="ProvName" class="form-control" />
+                <span asp-validation-for="ProvName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="ProveNameDari" class="col-md-2 control-label"></label>
+            <div class="col-md-8">
+                <input asp-for="ProveNameDari" class="form-control" />
+                <span asp-validation-for="ProveNameDari" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="ProveNamePashto" class="col-md-2 control-label"></label>
+            <div class="col-md-8">
+                <input asp-for="ProveNamePashto" class="form-control" />
+                <span asp-validation-for="ProveNamePashto" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-8">
+                <input type="submit" value="Create" class="btn btn-block btn-primary" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

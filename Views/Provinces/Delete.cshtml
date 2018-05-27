@@ -1,0 +1,59 @@
+@model rmc.Models.Provinces
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Provinces</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <input type="hidden" asp-for="ProvCode" />
+        <dt>
+            @Html.DisplayNameFor(model => model.Aghchocode)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Aghchocode)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Aimscode)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Aimscode)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CreatedDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ProvName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ProvName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ProveNameDari)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ProveNameDari)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ProveNamePashto)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ProveNamePashto)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            <a asp-action="Index">Back to List</a>
+        </div>
+    </form>
+</div>

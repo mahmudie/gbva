@@ -1,0 +1,128 @@
+@model IEnumerable<rmc.Models.FacilityInfo>
+
+@{
+    ViewData["Title"] = "facilities info";
+}
+
+<h2>Facilities</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table table-bordered" id="tbl">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.FacilityName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FacilityNameDari)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FacilityNamePashto)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FacilityType)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Gpslattitude)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Gpslongtitude)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Implementer)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Lat)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Location)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LocationDari)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LocationPashto)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Lon)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SubImplementer)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ViliCode)
+                </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DistCodeNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FacilityName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FacilityNameDari)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FacilityNamePashto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FacilityType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gpslattitude)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gpslongtitude)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Implementer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LocationDari)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LocationPashto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubImplementer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ViliCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DistCodeNavigation.DistName)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.FacilityId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.FacilityId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.FacilityId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            var table = $('#tbl').DataTable({
+                responsive: true,
+            });
+        });
+    </script>
+}

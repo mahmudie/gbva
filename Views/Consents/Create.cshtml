@@ -1,0 +1,97 @@
+@model rmc.Models.Consent
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<form asp-action="Create">
+    <div class="form-horizontal">
+        <h4>Consent</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="GbvCaseId" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <select asp-for="GbvCaseId" class ="form-control" asp-items="ViewBag.GbvCaseId"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="PhysicalExams" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="PhysicalExams" class="form-control" />
+                <span asp-validation-for="PhysicalExams" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="PelvicExams" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="PelvicExams" class="form-control" />
+                <span asp-validation-for="PelvicExams" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="SpeculumExams" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="SpeculumExams" class="form-control" />
+                <span asp-validation-for="SpeculumExams" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="OtherExams" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="OtherExams" class="form-control" />
+                <span asp-validation-for="OtherExams" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="BloodExams" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="BloodExams" class="form-control" />
+                <span asp-validation-for="BloodExams" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="ProvisionOfInfo" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="ProvisionOfInfo" class="form-control" />
+                <span asp-validation-for="ProvisionOfInfo" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="UserName" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="UserName" class="form-control" />
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="LastUpdate" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="LastUpdate" class="form-control" />
+                <span asp-validation-for="LastUpdate" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="InsertDate" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="InsertDate" class="form-control" />
+                <span asp-validation-for="InsertDate" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

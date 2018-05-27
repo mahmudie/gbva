@@ -1,0 +1,48 @@
+@model rmc.Models.Authorization
+
+@{
+    ViewData["Title"] = "Authorization info";
+}
+
+<br />
+<ul class="nav nav-tabs">
+    <li role="presentation" ><a asp-controller="consents" asp-route-id="@Model.GbvCaseId" asp-action="Edit">Consent</a></li>
+    <li role="presentation"><a asp-controller="registration" asp-route-id="@Model.GbvCaseId" asp-action="Edit">Registration</a></li>
+    <li role="presentation"><a asp-controller="intake" asp-route-id="@Model.GbvCaseId" asp-action="Edit">Intake Info</a></li>
+    <li role="presentation" class="active"><a asp-controller="authorizations" asp-route-id="@Model.GbvCaseId" asp-action="Edit">Authorization</a></li>
+    <li role="presentation"><a asp-controller="Gbv" asp-action="Index">back to List</a></li>
+</ul>
+<div class="container">
+<form asp-action="Edit">
+    <div class="form-horizontal">
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="AuthorizationId" />
+        <input type="hidden" asp-for="GbvCaseId" />
+        <div class="form-group">
+            <label asp-for="Islessthan18" class="checkbox-inline col-md-offset-3">
+                <input type="checkbox" asp-for="Islessthan18" />
+            is less than 18 years old
+            </label>
+        </div>
+        <div class="form-group">
+            <label asp-for="IsSigned" class="checkbox-inline col-md-offset-3">
+                <input type="checkbox" asp-for="IsSigned" />
+                is authorization letter signed by patient/custodian
+            </label>
+        </div>
+        
+        <div class="form-group">
+            <div class="col-md-offset-3 col-md-10">
+                <input type="submit" value="Save" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<hr>
+    </div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

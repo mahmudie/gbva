@@ -1,0 +1,12 @@
+c:\users\ghader\documents\visual studio 2017\Projects\rmc\rmc\bin\Debug\netcoreapp1.1\rmc.deps.json
+c:\users\ghader\documents\visual studio 2017\Projects\rmc\rmc\bin\Debug\netcoreapp1.1\rmc.runtimeconfig.json
+c:\users\ghader\documents\visual studio 2017\Projects\rmc\rmc\bin\Debug\netcoreapp1.1\rmc.runtimeconfig.dev.json
+c:\users\ghader\documents\visual studio 2017\Projects\rmc\rmc\bin\Debug\netcoreapp1.1\rmc.dll
+c:\users\ghader\documents\visual studio 2017\Projects\rmc\rmc\bin\Debug\netcoreapp1.1\rmc.pdb
+c:\users\ghader\documents\visual studio 2017\Projects\rmc\rmc\obj\Debug\netcoreapp1.1\rmc.csprojResolveAssemblyReference.cache
+c:\users\ghader\documents\visual studio 2017\Projects\rmc\rmc\obj\Debug\netcoreapp1.1\UserSecretsAssemblyInfo.cs
+c:\users\ghader\documents\visual studio 2017\Projects\rmc\rmc\obj\Debug\netcoreapp1.1\rmc.AssemblyInfo.cs
+c:\users\ghader\documents\visual studio 2017\Projects\rmc\rmc\obj\Debug\netcoreapp1.1\rmc.dll
+c:\users\ghader\documents\visual studio 2017\Projects\rmc\rmc\obj\Debug\netcoreapp1.1\rmc.pdb
+C:\Users\Ghader\Documents\Visual Studio 2017\Projects\rmc\rmc\obj\Debug\netcoreapp1.1\rmc.csproj.CoreCompileInputs.cache
+C:\Users\Ghader\Documents\Visual Studio 2017\Projects\rmc\rmc\obj\Debug\netcoreapp1.1\rmc.AssemblyInfoInputs.cache

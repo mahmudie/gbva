@@ -1,0 +1,181 @@
+@model rmc.Models.FacilityInfo
+
+@{
+    ViewData["Title"] = "Create New Facility";
+}
+<div class="container-fluid">
+
+<h2>Create Facility</h2>
+<form asp-action="Create">
+    <div class="form-horizontal">
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group row">
+            <div class="col-md-6">
+                <label asp-for="FacilityId" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="FacilityId" class="form-control" />
+                    <span asp-validation-for="FacilityId" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label asp-for="ActiveStatus" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="ActiveStatus" class="form-control" />
+                    <span asp-validation-for="ActiveStatus" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-6">
+                <label asp-for="DistCode" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <select asp-for="DistCode" class="form-control" asp-items="ViewBag.DistCode"></select>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label asp-for="User" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <select asp-for="User" class="form-control" asp-items="ViewBag.user"></select>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-6">
+                <label asp-for="FacilityName" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="FacilityName" class="form-control" />
+                    <span asp-validation-for="FacilityName" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label asp-for="FacilityNameDari" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="FacilityNameDari" class="form-control" />
+                    <span asp-validation-for="FacilityNameDari" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-6">
+                <label asp-for="DateEstablished" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="DateEstablished" class="form-control" />
+                    <span asp-validation-for="DateEstablished" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label asp-for="FacilityNamePashto" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="FacilityNamePashto" class="form-control" />
+                    <span asp-validation-for="FacilityNamePashto" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-6">
+                <label asp-for="FacilityType" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="FacilityType" class="form-control" />
+                    <span asp-validation-for="FacilityType" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label asp-for="Implementer" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="Implementer" class="form-control" />
+                    <span asp-validation-for="Implementer" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-6">
+                <label asp-for="Gpslattitude" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="Gpslattitude" class="form-control" />
+                    <span asp-validation-for="Gpslattitude" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label asp-for="Gpslongtitude" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="Gpslongtitude" class="form-control" />
+                    <span asp-validation-for="Gpslongtitude" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-6">
+                <label asp-for="Lat" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="Lat" class="form-control" />
+                    <span asp-validation-for="Lat" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label asp-for="Lon" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="Lon" class="form-control" />
+                    <span asp-validation-for="Lon" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-6">
+                <label asp-for="Location" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="Location" class="form-control" />
+                    <span asp-validation-for="Location" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label asp-for="LocationDari" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="LocationDari" class="form-control" />
+                    <span asp-validation-for="LocationDari" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-6">
+                <label asp-for="LocationPashto" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="LocationPashto" class="form-control" />
+                    <span asp-validation-for="LocationPashto" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label asp-for="SubImplementer" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="SubImplementer" class="form-control" />
+                    <span asp-validation-for="SubImplementer" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-6">
+                <label asp-for="ViliCode" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="ViliCode" class="form-control" />
+                    <span asp-validation-for="ViliCode" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-8">
+                <input type="submit" value="Create" class="btn btn-block btn-primary" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

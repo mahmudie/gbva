@@ -1,0 +1,27 @@
+@model rmc.Models.ApplicationUser
+@{
+    ViewData["Title"] = "Delete Account";
+}
+<div class="container">
+    <h2>@ViewData["Title"].</h2>
+
+    <form asp-controller="Manage" asp-action="deleteConfirmed" asp-route-id="@Model.UserName" asp-route-returnurl="/account/userslist" method="post" class="form-horizontal">
+        <hr />
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="form-group">
+            <div class="col-md-7">
+                 <p> Are you sure you want to delete @Model.UserName ?</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-4 col-md-10">
+                <button type="submit" class="btn btn-danger">Delete</button>
+   
+            </div>
+        </div>
+    </form>
+    <a href="/Account/userslist" class="btn btn-default ">Back to list</a>
+</div>
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}
