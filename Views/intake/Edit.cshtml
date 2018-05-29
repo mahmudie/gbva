@@ -4,6 +4,8 @@
     ViewData["Title"] = "Intake Information";
 }
 <br />
+@Html.Partial("info")
+
 <ul class="nav nav-tabs">
     <li role="presentation"><a asp-controller="consents" asp-route-id="@Model.GbvCaseId" asp-action="Edit">Consent</a></li>
     <li role="presentation"><a asp-controller="registration" asp-route-id="@Model.GbvCaseId" asp-action="Edit">Registration</a></li>

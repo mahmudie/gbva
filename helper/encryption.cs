@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace rmc.helper
 {
-    public class CipherService 
+    public class CipherService : ICipherService
     {
         private readonly IDataProtectionProvider _dataProtectionProvider;
-        private const string Key = "my-very-long-key-of-no-exact-size";
+        private const string Key = "Salted__(etuD3F[´Ú£Ù,PüGÉŸ{Óé";
 
         public CipherService(IDataProtectionProvider dataProtectionProvider)
         {

@@ -15,21 +15,21 @@
         <table id="tbl" class="table table-striped table-bordered nowrap dt-responsive nowrap" cellspacing="0" width="100%">
     <thead>
         <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.IncCode)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.RegNo)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.ItrCode)
-                </th>
-                <th>
+                <th data-priority="1">
                     @Html.DisplayNameFor(model => model.PatientName)
                 </th>
-                <th>
+                <th data-priority="1">
                     @Html.DisplayNameFor(model => model.PatientFatherName)
                 </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IncCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RegNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ItrCode)
+            </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Age)
                 </th>
@@ -57,12 +57,18 @@
             <th>
                 @Html.DisplayNameFor(model => model.Hospital)
             </th>
-                        <th class="text-center">Actions</th>
+            <th data-priority="1" class="text-center">Actions</th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PatientName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PatientFatherName)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.IncCode)
             </td>
@@ -71,12 +77,6 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ItrCode)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PatientName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PatientFatherName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Age)

@@ -118,7 +118,7 @@ namespace rmc.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("FacilityId,ActiveStatus,DateEstablished,DistCode,FacilityName,FacilityNameDari,FacilityNamePashto,FacilityType,Gpslattitude,Gpslongtitude,Implementer,Lat,Location,LocationDari,LocationPashto,Lon,SubImplementer,ViliCode")] FacilityInfo facilityInfo)
+        public async Task<IActionResult> Edit(int id, [Bind("FacilityId,User,ActiveStatus,DateEstablished,DistCode,FacilityName,FacilityNameDari,FacilityNamePashto,FacilityType,Gpslattitude,Gpslongtitude,Implementer,Lat,Location,LocationDari,LocationPashto,Lon,SubImplementer,ViliCode")] FacilityInfo facilityInfo)
         {
             if (id != facilityInfo.FacilityId)
             {

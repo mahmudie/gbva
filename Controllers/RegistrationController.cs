@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using rmc.Models;
 using Microsoft.AspNetCore.Authorization;
+using rmc.helper;
 
 namespace rmc.Controllers
 {
@@ -14,10 +15,11 @@ namespace rmc.Controllers
     public class RegistrationController : Controller
     {
         private readonly rmsContext _context;
-
-        public RegistrationController(rmsContext context)
+        private readonly ICipherService _crypto;
+        public RegistrationController(rmsContext context, ICipherService crypto)
         {
-            _context = context;    
+            _context = context;
+            _crypto = crypto;
         }
 
      
@@ -33,6 +35,9 @@ namespace rmc.Controllers
             {
                 return NotFound();
             }
+            registration.GbvCase.PatientName = _crypto.Decrypt(registration.GbvCase.PatientName);
+            registration.GbvCase.PatientFatherName = _crypto.Decrypt(registration.GbvCase.PatientFatherName);
+            ViewBag.details = registration.GbvCase;
             return View(registration);
         }
 

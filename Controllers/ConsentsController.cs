@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using rmc.Models;
 using Microsoft.AspNetCore.Authorization;
+using rmc.helper;
 
 namespace rmc.Controllers
 {
@@ -14,10 +15,13 @@ namespace rmc.Controllers
     public class ConsentsController : Controller
     {
         private readonly rmsContext _context;
+        private readonly ICipherService _crypto;
 
-        public ConsentsController(rmsContext context)
+
+        public ConsentsController(rmsContext context,ICipherService crypto)
         {
-            _context = context;    
+            _context = context;
+            _crypto = crypto;
         }
 
     
@@ -30,11 +34,14 @@ namespace rmc.Controllers
                 return NotFound();
             }
 
-            var consent = await _context.Consent.Include(m=>m.GbvCase).SingleOrDefaultAsync(m => m.GbvCaseId == id && m.GbvCase.UserName.Equals(User.Identity.Name));
+            var consent = await _context.Consent.Include(m=>m.GbvCase).AsNoTracking().SingleOrDefaultAsync(m => m.GbvCaseId == id && m.GbvCase.UserName.Equals(User.Identity.Name));
             if (consent == null)
             {
                 return NotFound();
             }
+            consent.GbvCase.PatientName = _crypto.Decrypt(consent.GbvCase.PatientName);
+            consent.GbvCase.PatientFatherName = _crypto.Decrypt(consent.GbvCase.PatientFatherName);
+            ViewBag.details = consent.GbvCase;
             return View(consent);
         }
 

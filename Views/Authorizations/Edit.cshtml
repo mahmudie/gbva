@@ -5,6 +5,7 @@
 }
 
 <br />
+@Html.Partial("info")
 <ul class="nav nav-tabs">
     <li role="presentation" ><a asp-controller="consents" asp-route-id="@Model.GbvCaseId" asp-action="Edit">Consent</a></li>
     <li role="presentation"><a asp-controller="registration" asp-route-id="@Model.GbvCaseId" asp-action="Edit">Registration</a></li>
@@ -20,18 +21,39 @@
         <input type="hidden" asp-for="AuthorizationId" />
         <input type="hidden" asp-for="GbvCaseId" />
         <div class="form-group">
-            <label asp-for="Islessthan18" class="checkbox-inline col-md-offset-3">
+            <div class="col-md-9 col-md-offset-3"
+            <label asp-for="Islessthan18" class="checkbox-inline ">
                 <input type="checkbox" asp-for="Islessthan18" />
             is less than 18 years old
             </label>
+            </div>
         </div>
         <div class="form-group">
-            <label asp-for="IsSigned" class="checkbox-inline col-md-offset-3">
-                <input type="checkbox" asp-for="IsSigned" />
-                is authorization letter signed by patient/custodian
-            </label>
+            <div class="col-md-9 col-md-offset-3">
+                <label asp-for="IsSigned" class="checkbox-inline ">
+                    <input type="checkbox" asp-for="IsSigned" />
+                    is authorization letter signed by patient/custodian
+                </label>
+            </div>
         </div>
-        
+        <div class="form-group">
+            <label asp-for="AgencyTypeId" class="col-md-3 control-label"></label>
+            <div class="col-md-9">
+                <select asp-for="AgencyTypeId" class="form-control" asp-items="ViewBag.agency"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="AgencyName" class="col-md-3 control-label"></label>
+            <div class="col-md-9">
+                <input asp-for="AgencyName" class="form-control" asp-items="ViewBag.agency" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Comment" class="col-md-3 control-label"></label>
+            <div class="col-md-9">
+                <input asp-for="Comment" class="form-control" asp-items="ViewBag.agency" /> 
+            </div>
+        </div>
         <div class="form-group">
             <div class="col-md-offset-3 col-md-10">
                 <input type="submit" value="Save" class="btn btn-success" />

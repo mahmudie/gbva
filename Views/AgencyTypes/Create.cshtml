@@ -1,14 +1,13 @@
 @model rmc.Models.AgencyType
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Add Agency Type";
 }
-
-<h2>Create</h2>
+<div class="container">
+<h2>Create </h2>
 
 <form asp-action="Create">
     <div class="form-horizontal">
-        <h4>AgencyType</h4>
         <hr />
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <div class="form-group">
@@ -29,7 +28,7 @@
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
-
+</div>
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

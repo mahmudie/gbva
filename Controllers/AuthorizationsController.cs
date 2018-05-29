@@ -6,16 +6,19 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using rmc.Models;
+using rmc.helper;
 
 namespace rmc.Controllers
 {
     public class AuthorizationsController : Controller
     {
         private readonly rmsContext _context;
+        private readonly ICipherService _crypto;
 
-        public AuthorizationsController(rmsContext context)
+        public AuthorizationsController(rmsContext context, ICipherService crypto)
         {
-            _context = context;    
+            _context = context;
+            _crypto = crypto;
         }
 
         public async Task<IActionResult> Edit(Guid? id)
@@ -25,13 +28,29 @@ namespace rmc.Controllers
                 return NotFound();
             }
 
-            var authorization = await _context.Authorization.Include(m=>m.GbvCase)
+            var authorization = await _context.Authorization.Include(m=>m.GbvCase).AsNoTracking()
                 .SingleOrDefaultAsync(m => m.GbvCase.GbvCaseId == id && m.GbvCase.UserName.Equals(User.Identity.Name));
             if (authorization == null)
             {
                 return NotFound();
             }
-            ViewData["GbvCaseId"] = new SelectList(_context.GbvCase, "GbvCaseId", "GbvCaseId", authorization.GbvCaseId);
+            var sub = _context.AuthorizationSub.SingleOrDefault(m => m.AuthorizationId == authorization.AuthorizationId);
+            if (sub != null)
+            {
+                authorization.AgencyTypeId = sub.AgencyTypeId;
+                authorization.AgencyName = sub.AgencyName;
+                authorization.Comment = sub.Comment;
+                ViewData["agency"] = new SelectList(_context.AgencyType.ToList(), "AgencyTypeId", "AgencyType1", sub.AgencyTypeId.GetValueOrDefault());
+            }
+            else
+            {
+                ViewData["agency"] = new SelectList(_context.AgencyType.ToList(), "AgencyTypeId", "AgencyType1");
+
+            }
+            authorization.GbvCase.PatientName = _crypto.Decrypt(authorization.GbvCase.PatientName);
+            authorization.GbvCase.PatientFatherName = _crypto.Decrypt(authorization.GbvCase.PatientFatherName);
+            ViewBag.details = authorization.GbvCase;
+
             return View(authorization);
         }
 
@@ -40,7 +59,7 @@ namespace rmc.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("AuthorizationId,GbvCaseId,Islessthan18,IsSigned,UserName,LastUpdate,InsertDate")] Authorization authorization)
+        public async Task<IActionResult> Edit(Guid id, [Bind("AgencyTypeId,AgencyName,Comment,AuthorizationId,GbvCaseId,Islessthan18,IsSigned,UserName,LastUpdate,InsertDate")] Authorization authorization)
         {
             if (id != authorization.GbvCaseId)
             {
@@ -56,6 +75,23 @@ namespace rmc.Controllers
             {
                 try
                 {
+                    var sub = _context.AuthorizationSub.SingleOrDefault(m => m.AuthorizationId == item.AuthorizationId);
+                    if(sub == null)
+                    {
+                        var newSub = new AuthorizationSub();
+                        newSub.AgencyTypeId = authorization.AgencyTypeId;
+                        newSub.AgencyName = authorization.AgencyName;
+                        newSub.Comment = authorization.Comment;
+                        newSub.AuthorizationId = authorization.AuthorizationId;
+                        _context.AuthorizationSub.Add(newSub);
+                        await _context.SaveChangesAsync();
+                    }
+                    else
+                    {
+                        sub.AgencyTypeId = authorization.AgencyTypeId;
+                        sub.AgencyName = authorization.AgencyName;
+                        sub.Comment = authorization.Comment;
+                    }
                     item.GbvCase.LastUpdate = DateTime.Now;
                     _context.Update(authorization);
                     await _context.SaveChangesAsync();

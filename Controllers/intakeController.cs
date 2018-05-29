@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using rmc.Models;
 using Microsoft.AspNetCore.Authorization;
+using rmc.helper;
 
 namespace rmc.Controllers
 {
@@ -14,10 +15,12 @@ namespace rmc.Controllers
     public class intakeController : Controller
     {
         private readonly rmsContext _context;
+        private readonly ICipherService _crypto;
 
-        public intakeController(rmsContext context)
+        public intakeController(rmsContext context, ICipherService crypto)
         {
-            _context = context;    
+            _context = context;
+            _crypto = crypto;
         }
 
         // GET: intake/Edit/5
@@ -33,7 +36,9 @@ namespace rmc.Controllers
             {
                 return NotFound();
             }
-            ViewData["GbvCaseId"] = new SelectList(_context.GbvCase, "GbvCaseId", "GbvCaseId", intakeInfo.GbvCaseId);
+            intakeInfo.GbvCase.PatientName = _crypto.Decrypt(intakeInfo.GbvCase.PatientName);
+            intakeInfo.GbvCase.PatientFatherName = _crypto.Decrypt(intakeInfo.GbvCase.PatientFatherName);
+            ViewBag.details = intakeInfo.GbvCase;
             return View(intakeInfo);
         }
 

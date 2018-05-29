@@ -1,0 +1,34 @@
+﻿<div class="callout callout-info">
+    <div class="row">
+        <div class="col-md-4">
+            <h4>
+                Patient Name :@ViewBag.details.PatientName -
+                @if (@ViewBag.details.Sex == 1)
+                {
+                    @Html.Raw("Male")
+                }
+                @if (@ViewBag.details.Sex == 2)
+                {
+                    @Html.Raw("Female")
+                }
+            </h4>
+        </div>
+        <div class="col-md-4">
+            <h4>Patient Father Name :@ViewBag.details.PatientFatherName</h4>
+        </div>
+        <div class="col-md-4">
+            <h4>Patient Age :@ViewBag.details.Age</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <h4>INC Code :@ViewBag.details.IncCode</h4>
+        </div>
+        <div class="col-md-4">
+            <h4>ITR Code :@ViewBag.details.ItrCode</h4>
+        </div>
+        <div class="col-md-4">
+            <h4>Reg  No :@ViewBag.details.RegNo</h4>
+        </div>
+    </div>
+</div>

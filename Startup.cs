@@ -15,6 +15,7 @@ using rmc.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption;
+using rmc.helper;
 
 namespace rmc
 {
@@ -59,7 +60,7 @@ namespace rmc
                     ValidationAlgorithm = ValidationAlgorithm.HMACSHA256
                 });
             services.AddMvc();
-
+            services.AddScoped<ICipherService, CipherService>();
             // Add application services.
             services.AddTransient<IEmailSender, AuthMessageSender>();
             services.AddTransient<ISmsSender, AuthMessageSender>();

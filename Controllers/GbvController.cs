@@ -9,6 +9,7 @@ using rmc.Models;
 using Microsoft.AspNetCore.Authorization;
 using rmc.Models.ViewModels;
 using Microsoft.AspNetCore.DataProtection;
+using rmc.helper;
 
 namespace rmc.Controllers
 {
@@ -16,21 +17,24 @@ namespace rmc.Controllers
     public class GbvController : Controller
     {
         private readonly rmsContext _context;
-        private readonly IDataProtectionProvider _dataProtectionProvider;
-        private const string Key = "Salted__(etuD3F[´Ú£Ù,PüGÉŸ{Óé";
+        private readonly ICipherService _crypto;
 
-        public GbvController(rmsContext context,IDataProtectionProvider dataProtectionProvider)
+        public GbvController(rmsContext context,IDataProtectionProvider dataProtectionProvider,ICipherService crypto)
         {
             _context = context;
-            _dataProtectionProvider = dataProtectionProvider;
+            _crypto = crypto;
         }
 
-        // GET: Gbv
         public async Task<IActionResult> Index()
         {
-            var rmsContext = _context.GbvCase.Include(g => g.Hospital).Where(m => m.UserName.Equals(User.Identity.Name));
-            return View(await rmsContext.ToListAsync());
+            var data = await _context.GbvCase.Include(g => g.Hospital).Where(m => m.UserName.Equals(User.Identity.Name)).AsNoTracking().ToListAsync();
+            foreach (var item in data) {
+                item.PatientFatherName = _crypto.Decrypt(item.PatientFatherName);
+                item.PatientName = _crypto.Decrypt(item.PatientName);
+            }
+            return View(data);
         }
+
         [Authorize(Roles = "administrator")]
         public async Task<IActionResult> list()
         {
@@ -42,10 +46,27 @@ namespace rmc.Controllers
         public async Task<IActionResult> show(Guid? id)
         {
             var report = new GbvReport();
-            report.IntakeInfo=await _context.IntakeInfo.Where(m => m.GbvCase.GbvCaseId.Equals(id)).SingleOrDefaultAsync();
-            report.Authorization = await _context.Authorization.Where(m => m.GbvCase.GbvCaseId.Equals(id)).SingleOrDefaultAsync();
-            report.Consent = await _context.Consent.Where(m => m.GbvCase.GbvCaseId.Equals(id)).SingleOrDefaultAsync();
-            report.Registration= await _context.Registration.Where(m => m.GbvCase.GbvCaseId.Equals(id)).SingleOrDefaultAsync();
+            report.IntakeInfo=await _context.IntakeInfo.Where(m => m.GbvCase.GbvCaseId.Equals(id)).AsNoTracking().SingleOrDefaultAsync();
+            report.Authorization = await _context.Authorization.Where(m => m.GbvCase.GbvCaseId.Equals(id)).AsNoTracking().SingleOrDefaultAsync();
+            report.Consent = await _context.Consent.Where(m => m.GbvCase.GbvCaseId.Equals(id)).AsNoTracking().SingleOrDefaultAsync();
+            report.Registration= await _context.Registration.Where(m => m.GbvCase.GbvCaseId.Equals(id)).AsNoTracking().SingleOrDefaultAsync();
+            var gbv = await _context.GbvCase.AsNoTracking().SingleOrDefaultAsync(m => m.GbvCaseId == id);
+            gbv.PatientName = _crypto.Decrypt(gbv.PatientName);
+            gbv.PatientFatherName = _crypto.Decrypt(gbv.PatientFatherName);
+            ViewBag.details = gbv;
+            var sub = _context.AuthorizationSub.AsNoTracking().SingleOrDefault(m => m.AuthorizationId == report.Authorization.AuthorizationId);
+            if (sub != null)
+            {
+                report.Authorization.AgencyTypeId = sub.AgencyTypeId;
+                report.Authorization.AgencyName = sub.AgencyName;
+                report.Authorization.Comment = sub.Comment;
+                ViewData["agency"] = new SelectList(_context.AgencyType.ToList(), "AgencyTypeId", "AgencyType1", sub.AgencyTypeId.GetValueOrDefault());
+            }
+            else
+            {
+                ViewData["agency"] = new SelectList(_context.AgencyType.ToList(), "AgencyTypeId", "AgencyType1");
+
+            }
             return View(report);
         }
         // GET: Gbv/Details/5
@@ -85,8 +106,8 @@ namespace rmc.Controllers
             if (ModelState.IsValid)
             {
 
-                    var name = Encrypt(gbvCase.PatientName);
-                    gbvCase.PatientName = name;
+                    gbvCase.PatientName = _crypto.Encrypt(gbvCase.PatientName);
+                    gbvCase.PatientFatherName = _crypto.Encrypt(gbvCase.PatientFatherName);
                     gbvCase.GbvCaseId = Guid.NewGuid();
                     gbvCase.UserName = User.Identity.Name;
                     gbvCase.IncCode = String.Format("{0}-{1}", gbvCase.HospitalId, gbvCase.RegNo);
@@ -114,17 +135,6 @@ namespace rmc.Controllers
             return View(gbvCase);
         }
 
-        public string Encrypt(string input)
-        {
-            var protector = _dataProtectionProvider.CreateProtector(Key);
-            return protector.Protect(input);
-        }
-
-        public string Decrypt(string cipherText)
-        {
-            var protector = _dataProtectionProvider.CreateProtector(Key);
-            return protector.Unprotect(cipherText);
-        }
 
         // GET: Gbv/Edit/5
         public async Task<IActionResult> Edit(Guid? id)
@@ -138,7 +148,8 @@ namespace rmc.Controllers
             {
                 return NotFound();
             }
-            gbvCase.PatientName = Decrypt(gbvCase.PatientName);
+            gbvCase.PatientName = _crypto.Decrypt(gbvCase.PatientName);
+            gbvCase.PatientFatherName = _crypto.Decrypt(gbvCase.PatientFatherName);
             var facilities = _context.FacilityInfo.Where(m => m.User.Equals(User.Identity.Name)).ToList();
             ViewData["HospitalId"] = new SelectList(facilities, "FacilityId", "FacilityName", gbvCase.HospitalId);
             return View(gbvCase);
@@ -167,6 +178,8 @@ namespace rmc.Controllers
                 }
                 try
                 {
+                    gbvCase.PatientName = _crypto.Encrypt(gbvCase.PatientName);
+                    gbvCase.PatientFatherName = _crypto.Encrypt(gbvCase.PatientFatherName);
                     gbvCase.LastUpdate = DateTime.Now;
                     gbvCase.IncCode = String.Format("{0}-{1}", gbvCase.HospitalId, gbvCase.RegNo);
                     _context.Entry(gbvCase).State=EntityState.Modified;
@@ -210,7 +223,7 @@ namespace rmc.Controllers
                 return NotFound();
             }
 
-            gbvCase.PatientName = Decrypt(gbvCase.PatientName);
+            gbvCase.PatientName = _crypto.Decrypt(gbvCase.PatientName);
             return View(gbvCase);
         }
 

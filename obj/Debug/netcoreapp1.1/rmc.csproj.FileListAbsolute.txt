@@ -8,5 +8,3 @@ c:\users\ghader\documents\visual studio 2017\Projects\rmc\rmc\obj\Debug\netcorea
 c:\users\ghader\documents\visual studio 2017\Projects\rmc\rmc\obj\Debug\netcoreapp1.1\rmc.AssemblyInfo.cs
 c:\users\ghader\documents\visual studio 2017\Projects\rmc\rmc\obj\Debug\netcoreapp1.1\rmc.dll
 c:\users\ghader\documents\visual studio 2017\Projects\rmc\rmc\obj\Debug\netcoreapp1.1\rmc.pdb
-C:\Users\Ghader\Documents\Visual Studio 2017\Projects\rmc\rmc\obj\Debug\netcoreapp1.1\rmc.csproj.CoreCompileInputs.cache
-C:\Users\Ghader\Documents\Visual Studio 2017\Projects\rmc\rmc\obj\Debug\netcoreapp1.1\rmc.AssemblyInfoInputs.cache
